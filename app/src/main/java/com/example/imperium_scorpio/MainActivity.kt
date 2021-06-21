@@ -22,16 +22,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //ciao
         val sharedPref = this.getPreferences(Context.MODE_PRIVATE)
         mediaPlayer = MediaPlayer.create(this, R.raw.avvio)
         if (!sharedPref.getBoolean("first run",true)){
-            sharedPref.edit().putBoolean("first run",false).commit()
+            sharedPref.edit().putBoolean("first run",true).commit()
             val intent = Intent(this,installer::class.java)
             startActivity(intent)
         } else {
 
         findViewById<ConstraintLayout>(R.id.menu).visibility=View.INVISIBLE
-
+        findViewById<ImageView>(R.id.logo).visibility=View.VISIBLE
 
         val listener= Listener(findViewById(R.id.logo), findViewById(R.id.menu))
         mediaPlayer.setOnCompletionListener(listener)
