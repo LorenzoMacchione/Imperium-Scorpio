@@ -1,51 +1,36 @@
 package com.example.imperium_scorpio
 
 import android.content.Context
-import android.content.Intent
-import android.content.SharedPreferences
 import android.media.MediaPlayer
-import android.media.tv.TvContract
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
-import org.w3c.dom.Text
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var mediaPlayer: MediaPlayer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
 
+        val navigationHost =
+            supportFragmentManager.findFragmentById(R.id.myNavHost) as NavHostFragment
+        val navController = navigationHost.navController
+
+
         val sharedPref = this.getPreferences(Context.MODE_PRIVATE)
-        mediaPlayer = MediaPlayer.create(this, R.raw.avvio)
-        if (!sharedPref.getBoolean("first run",true)){
-            sharedPref.edit().putBoolean("first run",true).commit()
-            val intent = Intent(this,installer::class.java)
-            startActivity(intent)
-        } else
-        {
 
-            findViewById<ConstraintLayout>(R.id.menu).visibility=View.INVISIBLE
-            findViewById<ImageView>(R.id.logo).visibility=View.VISIBLE
-
-            val listener= Listener(findViewById(R.id.logo), findViewById(R.id.menu))
-            mediaPlayer.setOnCompletionListener(listener)
-            mediaPlayer.start()
-
-            findViewById<ImageView>(R.id.logo).setOnClickListener{
-                mediaPlayer.release()
-                findViewById<ImageView>(R.id.logo).visibility=View.INVISIBLE
-                findViewById<ConstraintLayout>(R.id.menu).visibility=View.VISIBLE
-            }
+        if (sharedPref.getBoolean("first run", true)) {
+            sharedPref.edit().putBoolean("first run", false).commit()
+            navController.navigate(R.id.action_menu_to_installer)
         }
     }
+
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
@@ -66,20 +51,11 @@ class MainActivity : AppCompatActivity() {
                 or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                 or View.SYSTEM_UI_FLAG_FULLSCREEN)
     }
+}
 
 
-    override fun onStop() {
-        super.onStop()
-            mediaPlayer.release()
-        }
-    }
 
-class Listener(val logo: ImageView, val menu: ConstraintLayout): MediaPlayer.OnCompletionListener{
-    override fun onCompletion(mp: MediaPlayer?) {
-        logo.visibility=View.INVISIBLE
-        menu.visibility=View.VISIBLE
-       }
-    }
+
 
 
 

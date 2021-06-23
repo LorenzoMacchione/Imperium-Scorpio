@@ -9,9 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Imperium_Scorpio" >
-        <activity android:name=".installer" >
+        <activity android:name=".installer"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".MainActivity" >
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
