@@ -7,6 +7,17 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/menu"
         android:layout_width="match_parent"
@@ -34,7 +45,7 @@
             android:text="IMPERIUM SCORPIO"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="48sp"
+            android:textSize="80sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
@@ -44,7 +55,9 @@
             android:id="@+id/shop"
             android:layout_width="240dp"
             android:layout_height="110dp"
+            android:layout_marginTop="24dp"
             app:layout_constraintEnd_toEndOf="@+id/collection"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/collection"
             app:layout_constraintTop_toBottomOf="@+id/collection"
             app:srcCompat="@drawable/shop" />
@@ -58,20 +71,19 @@
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.615"
+            app:layout_constraintVertical_bias="0.677"
             app:srcCompat="@drawable/collection" />
 
         <ImageView
             android:id="@+id/new_game"
             android:layout_width="240dp"
             android:layout_height="110dp"
-            android:layout_marginTop="192dp"
             app:layout_constraintBottom_toTopOf="@+id/collection"
             app:layout_constraintEnd_toEndOf="@+id/collection"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/collection"
-            app:layout_constraintTop_toTopOf="@+id/background_menu"
-            app:layout_constraintVertical_bias="1.0"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintVertical_bias="0.813"
             app:srcCompat="@drawable/new_game" />
 
         <TextView
@@ -84,8 +96,10 @@
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/collection"
             app:layout_constraintEnd_toEndOf="@+id/new_game"
+            app:layout_constraintHorizontal_bias="0.504"
             app:layout_constraintStart_toStartOf="@+id/new_game"
-            app:layout_constraintTop_toTopOf="@+id/new_game" />
+            app:layout_constraintTop_toTopOf="@+id/new_game"
+            app:layout_constraintVertical_bias="0.387" />
 
         <TextView
             android:id="@+id/textView3"
@@ -110,17 +124,6 @@
             app:layout_constraintEnd_toEndOf="@+id/shop"
             app:layout_constraintStart_toStartOf="@+id/shop"
             app:layout_constraintTop_toTopOf="@+id/shop" />
-
-        <ImageView
-            android:id="@+id/logo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/logo" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
