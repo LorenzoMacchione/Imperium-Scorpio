@@ -10,7 +10,11 @@
         android:id="@+id/installer"
         android:name="com.example.imperium_scorpio.installer"
         android:label="activity_installer"
-        tools:layout="@layout/installer" />
+        tools:layout="@layout/installer" >
+        <action
+            android:id="@+id/action_installer_to_menu"
+            app:destination="@id/menu" />
+    </fragment>
     <fragment
         android:id="@+id/menu"
         android:name="com.example.imperium_scorpio.menu"

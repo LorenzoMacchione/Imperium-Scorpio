@@ -9,13 +9,16 @@ import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.room.Room
 
 class MainActivity : AppCompatActivity() {
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
 
         val navigationHost =
@@ -25,10 +28,11 @@ class MainActivity : AppCompatActivity() {
 
         val sharedPref = this.getPreferences(Context.MODE_PRIVATE)
 
-        if (sharedPref.getBoolean("first run", true)) {
-            sharedPref.edit().putBoolean("first run", false).commit()
-            navController.navigate(R.id.action_menu_to_installer)
+        if (!sharedPref.getBoolean("first run", true)) {
+            sharedPref.edit().putBoolean("first run", true).commit()
+           // navController.navigate(R.id.action_menu_to_installer)
         }
+
     }
 
 

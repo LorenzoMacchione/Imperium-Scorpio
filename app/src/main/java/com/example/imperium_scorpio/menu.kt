@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.navigation.findNavController
 
 class menu : Fragment(R.layout.menu) {
 
@@ -16,6 +17,7 @@ class menu : Fragment(R.layout.menu) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
 
         mediaPlayer = MediaPlayer.create(activity, R.raw.avvio)
 
