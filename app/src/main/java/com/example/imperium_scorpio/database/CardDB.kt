@@ -1,4 +1,4 @@
-package com.example.imperium_scorpio
+package com.example.imperium_scorpio.database
 
 import android.content.Context
 import androidx.room.Database

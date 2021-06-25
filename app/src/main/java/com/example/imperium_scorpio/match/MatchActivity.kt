@@ -1,44 +1,15 @@
-package com.example.imperium_scorpio
+package com.example.imperium_scorpio.match
 
-import android.content.Context
-import android.content.Intent
-import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.ImageView
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.room.Room
-import com.example.imperium_scorpio.match.MatchActivity
+import com.example.imperium_scorpio.R
 
-class MainActivity : AppCompatActivity() {
-
-
-
+class MatchActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-
-
-        val navigationHost =
-            supportFragmentManager.findFragmentById(R.id.myNavHost) as NavHostFragment
-        val navController = navigationHost.navController
-
-
-        val sharedPref = this.getPreferences(Context.MODE_PRIVATE)
-
-        if (!sharedPref.getBoolean("first run", true)) {
-            sharedPref.edit().putBoolean("first run", true).commit()
-           // navController.navigate(R.id.action_menu_to_installer)
-        }
-
-
-
+        setContentView(R.layout.activity_match)
     }
-
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
@@ -60,10 +31,3 @@ class MainActivity : AppCompatActivity() {
                 or View.SYSTEM_UI_FLAG_FULLSCREEN)
     }
 }
-
-
-
-
-
-
-

@@ -1,4 +1,4 @@
-package com.example.imperium_scorpio
+package com.example.imperium_scorpio.database
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/installer"
-        android:name="com.example.imperium_scorpio.installer"
+        android:name="com.example.imperium_scorpio.home.Installer"
         android:label="activity_installer"
         tools:layout="@layout/installer" >
         <action
@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/menu"
-        android:name="com.example.imperium_scorpio.menu"
+        android:name="com.example.imperium_scorpio.home.Menu"
         android:label="menu"
         tools:layout="@layout/menu" >
         <action
