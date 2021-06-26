@@ -2,4 +2,6 @@
     <string name="app_name">Imperium_Scorpio</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="wait">WAIT</string>
+    <string name="draw">DRAW</string>
 </resources>

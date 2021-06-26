@@ -6,6 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".match.MatchActivity">
 
+    <data>
+        <variable>
+            name="match_model"
+            type="com.example.imperium_scorpio.match.MatchModel"
+        </variable>
+    </data>
+
     <ImageView
         android:id="@+id/match_background"
         android:layout_width="wrap_content"
@@ -149,7 +156,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
         android:fontFamily="sans-serif"
-        android:text="WAIT"
+        android:text="@string/wait"
         app:layout_constraintBottom_toTopOf="@+id/player_board"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -1026,4 +1033,232 @@
         app:layout_constraintStart_toEndOf="@+id/R3"
         app:layout_constraintTop_toTopOf="@+id/R2"
         app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/CardExplorer"
+        android:layout_width="247dp"
+        android:layout_height="362dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/match_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/match_background"
+        app:layout_constraintTop_toTopOf="@+id/match_background"
+        app:layout_constraintVertical_bias="0.26"
+        tools:visibility="gone">
+
+    <ImageView
+        android:id="@+id/CardBackGround"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/backcard" />
+
+    <ImageView
+        android:id="@+id/CardImmage"
+        android:layout_width="201dp"
+        android:layout_height="145dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.717"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/CardBackGround"
+        app:layout_constraintVertical_bias="0.129"
+        app:srcCompat="@android:drawable/divider_horizontal_bright" />
+
+    <TextView
+        android:id="@+id/Faction"
+        android:layout_width="9dp"
+        android:layout_height="9dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/name"
+        app:layout_constraintEnd_toStartOf="@+id/name"
+        app:layout_constraintHorizontal_bias="0.923"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/name"
+        app:layout_constraintVertical_bias="0.42000002" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="186dp"
+        android:layout_height="12dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/CardImmage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.541"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/CardBackGround" />
+
+    <TextView
+        android:id="@+id/cost1"
+        android:layout_width="16dp"
+        android:layout_height="14dp"
+        android:layout_marginTop="22dp"
+        android:text="-1"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toStartOf="@+id/CardImmage"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Faction" />
+
+    <TextView
+        android:id="@+id/cost2"
+        android:layout_width="15dp"
+        android:layout_height="14dp"
+        android:layout_marginTop="12dp"
+        android:text="-1"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@+id/cost1"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/cost1"
+        app:layout_constraintTop_toBottomOf="@+id/cost1" />
+
+    <TextView
+        android:id="@+id/cost3"
+        android:layout_width="16dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="12dp"
+        android:text="-1"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@+id/cost2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/cost2"
+        app:layout_constraintTop_toBottomOf="@+id/cost2" />
+
+    <TextView
+        android:id="@+id/cost4"
+        android:layout_width="15dp"
+        android:layout_height="14dp"
+        android:layout_marginTop="12dp"
+        android:text="-1"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/effect"
+        app:layout_constraintEnd_toEndOf="@+id/cost3"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/cost3"
+        app:layout_constraintTop_toBottomOf="@+id/cost3"
+        app:layout_constraintVertical_bias="0.019" />
+
+    <TextView
+        android:id="@+id/effect"
+        android:layout_width="223dp"
+        android:layout_height="135dp"
+        android:text="0"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.432"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CardImmage"
+        app:layout_constraintVertical_bias="0.254" />
+
+    <TextView
+        android:id="@+id/attack"
+        android:layout_width="15dp"
+        android:layout_height="16dp"
+        android:layout_marginEnd="76dp"
+        android:text="-1"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/mining"
+        app:layout_constraintEnd_toStartOf="@+id/mining"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/mining"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/mining"
+        android:layout_width="14dp"
+        android:layout_height="16dp"
+        android:text="-1"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/CardBackGround"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/effect"
+        app:layout_constraintVertical_bias="0.75" />
+
+    <TextView
+        android:id="@+id/Hp"
+        android:layout_width="15dp"
+        android:layout_height="17dp"
+        android:layout_marginEnd="2dp"
+        android:text="-1"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/mining"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/mining"
+        app:layout_constraintTop_toTopOf="@+id/mining"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/drawres1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/draw"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/R1"
+        app:layout_constraintEnd_toEndOf="@+id/R1"
+        app:layout_constraintStart_toStartOf="@+id/R1"
+        tools:visibility="gone" />
+
+    <Button
+        android:id="@+id/drawres2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:text="@string/draw"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/R2"
+        app:layout_constraintEnd_toEndOf="@+id/R2"
+        app:layout_constraintHorizontal_bias="0.545"
+        app:layout_constraintStart_toStartOf="@+id/R2"
+        tools:visibility="gone" />
+
+    <Button
+        android:id="@+id/drawres3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/draw"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/R3"
+        app:layout_constraintEnd_toEndOf="@+id/R3"
+        app:layout_constraintStart_toStartOf="@+id/R3"
+        tools:visibility="gone" />
+
+    <Button
+        android:id="@+id/drawres4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/draw"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/R4"
+        app:layout_constraintEnd_toEndOf="@+id/R4"
+        app:layout_constraintStart_toStartOf="@+id/R4"
+        tools:visibility="gone" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
