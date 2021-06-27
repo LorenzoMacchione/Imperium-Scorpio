@@ -21,7 +21,8 @@ class Installer : Fragment(R.layout.installer) {
                 R.id.loading_per
             )?.text.toString().toInt()+1).toString()
             //findViewById<ProgressBar>(R.id.progressBar).incrementProgressBy(1)
-           val newCard= Cards(a+1, "Giuseppe", 0, 0, 0, 0,"Bella", 1, 1, 1)
+           val newCard= Cards(a+1, "Giuseppe", 0, 0, 0, 0,"Bella",
+               1, 1, 1,1)
            cardDAO.insert(newCard)
        }
 

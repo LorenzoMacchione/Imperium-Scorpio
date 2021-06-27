@@ -1,4 +1,4 @@
-package com.example.imperium_scorpio.match
+package com.example.imperium_scorpio.match.viewmodels
 
 import android.graphics.drawable.Drawable
 import androidx.lifecycle.LiveData
@@ -20,11 +20,8 @@ class SmallCard : ViewModel() {
     val mining: LiveData<Int>
         get() = _mining
 
-    private val _name= MutableLiveData<String>("")
-    val name: LiveData<String>
-        get() = _name
 
-    private val _r1= MutableLiveData<Int>(0)
+    private val _r1= MutableLiveData<Int>(-1)
     val r1: LiveData<Int>
         get() = _r1
 
@@ -40,16 +37,11 @@ class SmallCard : ViewModel() {
     val r4: LiveData<Int>
         get() = _r4
 
-    private val _text= MutableLiveData<String>("")
-    val text: LiveData<String>
-        get() = _text
 
     fun newCard(c:Cards){
         _attack.value = c.attack
         _hp.value = c.hp
         _mining.value = c.mining
-        _name.value = c.name
-        _text.value = c.text
         _r1.value = c.res1
         _r2.value = c.res2
         _r3.value = c.res3

@@ -5,13 +5,18 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
-import androidx.lifecycle.ViewModel
 import com.example.imperium_scorpio.R
-import com.example.imperium_scorpio.databinding.ActivityMainBinding
 import com.example.imperium_scorpio.databinding.ActivityMatchBinding
+import com.example.imperium_scorpio.match.viewmodels.Explorer
+import com.example.imperium_scorpio.match.viewmodels.Resource
+import com.example.imperium_scorpio.match.viewmodels.SmallCard
 
 class MatchActivity : AppCompatActivity() {
+
+    val eRes = arrayOf(Resource by viewModel(),Resource(), Resource(),Resource())
+    val pRes = arrayOf(Resource(),Resource(), Resource(), Resource())
+
+    val explorer: Explorer by viewModel()
 
     val HC1_model: SmallCard by viewModels()
     val HC2_model: SmallCard by viewModels()
@@ -28,6 +33,14 @@ class MatchActivity : AppCompatActivity() {
         binding.hc3 = HC3_model
         binding.hc4 = HC4_model
         binding.hc5 = HC5_model
+        binding.eRes1 = eRes[0]
+        binding.eRes2 = eRes[1]
+        binding.eRes3 = eRes[2]
+        binding.eRes4 = eRes[3]
+        binding.pRes1 = pRes[0]
+        binding.pRes2 = pRes[1]
+        binding.pRes3 = pRes[2]
+        binding.pRes4 = pRes[3]
         binding.lifecycleOwner = this
 
 

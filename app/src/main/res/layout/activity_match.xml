@@ -5,19 +5,46 @@
 <data>
     <variable
         name="hc1"
-        type="com.example.imperium_scorpio.match.SmallCard" />
+        type="com.example.imperium_scorpio.match.viewmodels.SmallCard" />
     <variable
         name="hc2"
-        type="com.example.imperium_scorpio.match.SmallCard" />
+        type="com.example.imperium_scorpio.match.viewmodels.SmallCard" />
     <variable
         name="hc3"
-        type="com.example.imperium_scorpio.match.SmallCard" />
+        type="com.example.imperium_scorpio.match.viewmodels.SmallCard" />
     <variable
         name="hc4"
-        type="com.example.imperium_scorpio.match.SmallCard" />
+        type="com.example.imperium_scorpio.match.viewmodels.SmallCard" />
     <variable
         name="hc5"
-        type="com.example.imperium_scorpio.match.SmallCard" />
+        type="com.example.imperium_scorpio.match.viewmodels.SmallCard" />
+    <variable
+        name="eRes1"
+        type="com.example.imperium_scorpio.match.viewmodels.Resource" />
+    <variable
+        name="eRes2"
+        type="com.example.imperium_scorpio.match.viewmodels.Resource" />
+    <variable
+        name="eRes3"
+        type="com.example.imperium_scorpio.match.viewmodels.Resource" />
+    <variable
+        name="eRes4"
+        type="com.example.imperium_scorpio.match.viewmodels.Resource" />
+    <variable
+        name="pRes1"
+        type="com.example.imperium_scorpio.match.viewmodels.Resource" />
+    <variable
+        name="pRes2"
+        type="com.example.imperium_scorpio.match.viewmodels.Resource" />
+    <variable
+        name="pRes3"
+        type="com.example.imperium_scorpio.match.viewmodels.Resource" />
+    <variable
+        name="pRes4"
+        type="com.example.imperium_scorpio.match.viewmodels.Resource" />
+    <variable
+        name="explorer"
+        type="com.example.imperium_scorpio.match.viewmodels.Explorer" />
 </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -184,7 +211,7 @@
         android:paddingTop="2dp"
         android:paddingRight="8dp"
         android:paddingBottom="2dp"
-        android:text="10"
+        android:text="@{eRes1.res.toString}"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -202,10 +229,9 @@
         android:paddingTop="2dp"
         android:paddingRight="8dp"
         android:paddingBottom="2dp"
-        android:text="10"
+        android:text="@{eRes2.res.toString}"
         android:textAlignment="center"
         android:textColor="@color/black"
-
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.37"
@@ -222,7 +248,7 @@
         android:paddingTop="2dp"
         android:paddingRight="8dp"
         android:paddingBottom="2dp"
-        android:text="10"
+        android:text="@{eRes3.res.toString}"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -241,7 +267,7 @@
         android:paddingTop="2dp"
         android:paddingRight="8dp"
         android:paddingBottom="2dp"
-        android:text="10"
+        android:text="@{eRes4.res.toString}"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="20sp"
@@ -974,13 +1000,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
-        android:autoText="false"
         android:background="#673AB7"
         android:paddingLeft="8dp"
         android:paddingTop="2dp"
         android:paddingRight="8dp"
         android:paddingBottom="2dp"
-        android:text="10"
+        android:text="@{pRes1.res.toString}"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -998,7 +1023,7 @@
         android:paddingTop="2dp"
         android:paddingRight="8dp"
         android:paddingBottom="2dp"
-        android:text="10"
+        android:text="@{pRes2.res.toString}"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="20sp"
@@ -1019,7 +1044,7 @@
         android:paddingTop="2dp"
         android:paddingRight="8dp"
         android:paddingBottom="2dp"
-        android:text="10"
+        android:text="@{pRes3.res.toString}"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -1038,7 +1063,7 @@
         android:paddingTop="2dp"
         android:paddingRight="8dp"
         android:paddingBottom="2dp"
-        android:text="10"
+        android:text="@{pRes4.res.toString}"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="20sp"
@@ -1087,7 +1112,7 @@
             android:id="@+id/name"
             android:layout_width="186dp"
             android:layout_height="12dp"
-            android:text="TextView"
+            android:text="@{explorer.name}"
             android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="10sp"
@@ -1102,7 +1127,7 @@
             android:layout_width="16dp"
             android:layout_height="14dp"
             android:layout_marginTop="22dp"
-            android:text="-1"
+            android:text="@{explorer.r1.toString}"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="10sp"
@@ -1116,7 +1141,7 @@
             android:layout_width="15dp"
             android:layout_height="14dp"
             android:layout_marginTop="12dp"
-            android:text="-1"
+            android:text="explorer.r2.toString"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="10sp"
@@ -1130,7 +1155,7 @@
             android:layout_width="16dp"
             android:layout_height="15dp"
             android:layout_marginTop="12dp"
-            android:text="-1"
+            android:text="@{explorer.r3.toString}"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="10sp"
@@ -1144,7 +1169,7 @@
             android:layout_width="15dp"
             android:layout_height="14dp"
             android:layout_marginTop="12dp"
-            android:text="-1"
+            android:text="@{explorer.r4.toString}"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="10sp"
@@ -1159,7 +1184,7 @@
             android:id="@+id/effect"
             android:layout_width="223dp"
             android:layout_height="135dp"
-            android:text="0"
+            android:text="@{explorer.text}"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -1173,7 +1198,7 @@
             android:layout_width="15dp"
             android:layout_height="16dp"
             android:layout_marginEnd="76dp"
-            android:text="-1"
+            android:text="@{explorer.attack.toString}"
             android:textAlignment="center"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="@+id/mining"
@@ -1187,7 +1212,7 @@
             android:id="@+id/mining"
             android:layout_width="14dp"
             android:layout_height="16dp"
-            android:text="-1"
+            android:text="@{explorer.mining.toString}"
             android:textAlignment="center"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="@+id/CardBackGround"
@@ -1202,7 +1227,7 @@
             android:layout_width="15dp"
             android:layout_height="17dp"
             android:layout_marginEnd="2dp"
-            android:text="-1"
+            android:text="@{explorer.hp.toString}"
             android:textAlignment="center"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="@+id/mining"
