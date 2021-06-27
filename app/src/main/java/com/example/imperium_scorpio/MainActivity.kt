@@ -1,17 +1,12 @@
 package com.example.imperium_scorpio
 
 import android.content.Context
-import android.content.Intent
-import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.ImageView
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.room.Room
-import com.example.imperium_scorpio.match.MatchActivity
+
+
 
 class MainActivity : AppCompatActivity() {
 

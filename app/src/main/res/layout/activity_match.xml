@@ -1,17 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+<data>
+    <variable
+        name="hc1"
+        type="com.example.imperium_scorpio.match.SmallCard" />
+    <variable
+        name="hc2"
+        type="com.example.imperium_scorpio.match.SmallCard" />
+    <variable
+        name="hc3"
+        type="com.example.imperium_scorpio.match.SmallCard" />
+    <variable
+        name="hc4"
+        type="com.example.imperium_scorpio.match.SmallCard" />
+    <variable
+        name="hc5"
+        type="com.example.imperium_scorpio.match.SmallCard" />
+</data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".match.MatchActivity">
 
-    <data>
-        <variable>
-            name="match_model"
-            type="com.example.imperium_scorpio.match.MatchModel"
-        </variable>
-    </data>
+
 
     <ImageView
         android:id="@+id/match_background"
@@ -165,7 +179,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="30dp"
-        android:autoText="false"
         android:background="#673AB7"
         android:paddingLeft="8dp"
         android:paddingTop="2dp"
@@ -322,7 +335,7 @@
             android:layout_width="12dp"
             android:layout_height="16dp"
             android:background="#144C10"
-            android:text="-1"
+            android:text="@{hc3.hp.toString()}"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="12sp"
@@ -339,7 +352,7 @@
             android:layout_height="16dp"
             android:background="#FFFFFF"
             android:backgroundTint="#A6842C"
-            android:text="-1"
+            android:text="@{hc3.mining.toString()}"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="12sp"
@@ -354,7 +367,7 @@
             android:layout_width="12dp"
             android:layout_height="16dp"
             android:background="#FD0000"
-            android:text="-1"
+            android:text="@{hc3.attack.toString()}"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="12sp"
@@ -370,7 +383,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/white"
-            android:text="-1"
+            android:text="@{hc3.r4.toString()}"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="12sp"
@@ -386,7 +399,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/black"
-            android:text="-1"
+            android:text="@{hc3.r3.toString()}"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="12sp"
@@ -402,7 +415,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#03A9F4"
-            android:text="-1"
+            android:text="@{hc3.r2.toString()}"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="12sp"
@@ -418,7 +431,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#673AB7"
-            android:text="-1"
+            android:text="@{hc3.r1.toString()}"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="12sp"
@@ -1046,174 +1059,160 @@
         app:layout_constraintVertical_bias="0.26"
         tools:visibility="gone">
 
-    <ImageView
-        android:id="@+id/CardBackGround"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/backcard" />
+        <ImageView
+            android:id="@+id/CardBackGround"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/backcard" />
 
-    <ImageView
-        android:id="@+id/CardImmage"
-        android:layout_width="201dp"
-        android:layout_height="145dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.717"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/CardBackGround"
-        app:layout_constraintVertical_bias="0.129"
-        app:srcCompat="@android:drawable/divider_horizontal_bright" />
+        <ImageView
+            android:id="@+id/CardImmage"
+            android:layout_width="201dp"
+            android:layout_height="145dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.717"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/CardBackGround"
+            app:layout_constraintVertical_bias="0.129"
+            app:srcCompat="@android:drawable/divider_horizontal_bright" />
 
-    <TextView
-        android:id="@+id/Faction"
-        android:layout_width="9dp"
-        android:layout_height="9dp"
-        android:text="TextView"
-        android:textAlignment="center"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="@+id/name"
-        app:layout_constraintEnd_toStartOf="@+id/name"
-        app:layout_constraintHorizontal_bias="0.923"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/name"
-        app:layout_constraintVertical_bias="0.42000002" />
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="186dp"
+            android:layout_height="12dp"
+            android:text="TextView"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toTopOf="@+id/CardImmage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.541"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/CardBackGround" />
 
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="186dp"
-        android:layout_height="12dp"
-        android:text="TextView"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toTopOf="@+id/CardImmage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.541"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/CardBackGround" />
+        <TextView
+            android:id="@+id/cost1"
+            android:layout_width="16dp"
+            android:layout_height="14dp"
+            android:layout_marginTop="22dp"
+            android:text="-1"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toStartOf="@+id/CardImmage"
+            app:layout_constraintHorizontal_bias="0.529"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name" />
 
-    <TextView
-        android:id="@+id/cost1"
-        android:layout_width="16dp"
-        android:layout_height="14dp"
-        android:layout_marginTop="22dp"
-        android:text="-1"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="10sp"
-        app:layout_constraintEnd_toStartOf="@+id/CardImmage"
-        app:layout_constraintHorizontal_bias="0.529"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Faction" />
+        <TextView
+            android:id="@+id/cost2"
+            android:layout_width="15dp"
+            android:layout_height="14dp"
+            android:layout_marginTop="12dp"
+            android:text="-1"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="@+id/cost1"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/cost1"
+            app:layout_constraintTop_toBottomOf="@+id/cost1" />
 
-    <TextView
-        android:id="@+id/cost2"
-        android:layout_width="15dp"
-        android:layout_height="14dp"
-        android:layout_marginTop="12dp"
-        android:text="-1"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="@+id/cost1"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/cost1"
-        app:layout_constraintTop_toBottomOf="@+id/cost1" />
+        <TextView
+            android:id="@+id/cost3"
+            android:layout_width="16dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="12dp"
+            android:text="-1"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="@+id/cost2"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/cost2"
+            app:layout_constraintTop_toBottomOf="@+id/cost2" />
 
-    <TextView
-        android:id="@+id/cost3"
-        android:layout_width="16dp"
-        android:layout_height="15dp"
-        android:layout_marginTop="12dp"
-        android:text="-1"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="@+id/cost2"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/cost2"
-        app:layout_constraintTop_toBottomOf="@+id/cost2" />
+        <TextView
+            android:id="@+id/cost4"
+            android:layout_width="15dp"
+            android:layout_height="14dp"
+            android:layout_marginTop="12dp"
+            android:text="-1"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toTopOf="@+id/effect"
+            app:layout_constraintEnd_toEndOf="@+id/cost3"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/cost3"
+            app:layout_constraintTop_toBottomOf="@+id/cost3"
+            app:layout_constraintVertical_bias="0.019" />
 
-    <TextView
-        android:id="@+id/cost4"
-        android:layout_width="15dp"
-        android:layout_height="14dp"
-        android:layout_marginTop="12dp"
-        android:text="-1"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toTopOf="@+id/effect"
-        app:layout_constraintEnd_toEndOf="@+id/cost3"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/cost3"
-        app:layout_constraintTop_toBottomOf="@+id/cost3"
-        app:layout_constraintVertical_bias="0.019" />
+        <TextView
+            android:id="@+id/effect"
+            android:layout_width="223dp"
+            android:layout_height="135dp"
+            android:text="0"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.432"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/CardImmage"
+            app:layout_constraintVertical_bias="0.254" />
 
-    <TextView
-        android:id="@+id/effect"
-        android:layout_width="223dp"
-        android:layout_height="135dp"
-        android:text="0"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.432"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CardImmage"
-        app:layout_constraintVertical_bias="0.254" />
+        <TextView
+            android:id="@+id/attack"
+            android:layout_width="15dp"
+            android:layout_height="16dp"
+            android:layout_marginEnd="76dp"
+            android:text="-1"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/mining"
+            app:layout_constraintEnd_toStartOf="@+id/mining"
+            app:layout_constraintHorizontal_bias="0.333"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/mining"
+            app:layout_constraintVertical_bias="1.0" />
 
-    <TextView
-        android:id="@+id/attack"
-        android:layout_width="15dp"
-        android:layout_height="16dp"
-        android:layout_marginEnd="76dp"
-        android:text="-1"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/mining"
-        app:layout_constraintEnd_toStartOf="@+id/mining"
-        app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/mining"
-        app:layout_constraintVertical_bias="1.0" />
+        <TextView
+            android:id="@+id/mining"
+            android:layout_width="14dp"
+            android:layout_height="16dp"
+            android:text="-1"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/CardBackGround"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/effect"
+            app:layout_constraintVertical_bias="0.75" />
 
-    <TextView
-        android:id="@+id/mining"
-        android:layout_width="14dp"
-        android:layout_height="16dp"
-        android:text="-1"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/CardBackGround"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/effect"
-        app:layout_constraintVertical_bias="0.75" />
+        <TextView
+            android:id="@+id/Hp"
+            android:layout_width="15dp"
+            android:layout_height="17dp"
+            android:layout_marginEnd="2dp"
+            android:text="-1"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/mining"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/mining"
+            app:layout_constraintTop_toTopOf="@+id/mining"
+            app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-        android:id="@+id/Hp"
-        android:layout_width="15dp"
-        android:layout_height="17dp"
-        android:layout_marginEnd="2dp"
-        android:text="-1"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/mining"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/mining"
-        app:layout_constraintTop_toTopOf="@+id/mining"
-        app:layout_constraintVertical_bias="0.0" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
         android:id="@+id/drawres1"
@@ -1262,3 +1261,4 @@
         tools:visibility="gone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

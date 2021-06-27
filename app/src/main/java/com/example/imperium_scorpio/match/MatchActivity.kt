@@ -3,12 +3,34 @@ package com.example.imperium_scorpio.match
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.activity.viewModels
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
+import androidx.lifecycle.ViewModel
 import com.example.imperium_scorpio.R
+import com.example.imperium_scorpio.databinding.ActivityMainBinding
+import com.example.imperium_scorpio.databinding.ActivityMatchBinding
 
 class MatchActivity : AppCompatActivity() {
+
+    val HC1_model: SmallCard by viewModels()
+    val HC2_model: SmallCard by viewModels()
+    val HC3_model: SmallCard by viewModels()
+    val HC4_model: SmallCard by viewModels()
+    val HC5_model: SmallCard by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_match)
+        val binding :ActivityMatchBinding = DataBindingUtil
+            .setContentView(this, R.layout.activity_match)
+        binding.hc1 = HC1_model
+        binding.hc2 = HC2_model
+        binding.hc3 = HC3_model
+        binding.hc4 = HC4_model
+        binding.hc5 = HC5_model
+        binding.lifecycleOwner = this
+
+
     }
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
