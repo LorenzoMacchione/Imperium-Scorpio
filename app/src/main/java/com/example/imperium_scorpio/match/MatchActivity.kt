@@ -1,49 +1,360 @@
 package com.example.imperium_scorpio.match
-
+import android.content.ClipData
+import android.content.ClipDescription
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.DragEvent
 import android.view.View
+import android.widget.ImageView
 import androidx.activity.viewModels
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.DataBindingUtil
 import com.example.imperium_scorpio.R
+import com.example.imperium_scorpio.database.CardDAO
+import com.example.imperium_scorpio.database.CardDB
 import com.example.imperium_scorpio.databinding.ActivityMatchBinding
-import com.example.imperium_scorpio.match.viewmodels.Explorer
-import com.example.imperium_scorpio.match.viewmodels.Resource
-import com.example.imperium_scorpio.match.viewmodels.SmallCard
+
 
 class MatchActivity : AppCompatActivity() {
 
-    val eRes = arrayOf(Resource by viewModel(),Resource(), Resource(),Resource())
-    val pRes = arrayOf(Resource(),Resource(), Resource(), Resource())
 
-    val explorer: Explorer by viewModel()
+    var activeCard = -1
+    val mvm: MatchViewModel by viewModels()
+    lateinit var cardDAO: CardDAO
 
-    val HC1_model: SmallCard by viewModels()
-    val HC2_model: SmallCard by viewModels()
-    val HC3_model: SmallCard by viewModels()
-    val HC4_model: SmallCard by viewModels()
-    val HC5_model: SmallCard by viewModels()
+    lateinit var deck: Deck
+
+    val ringsY = mutableListOf<Int>()
+    val ringsG = mutableListOf<Int>()
+    val ringsR = mutableListOf<Int>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding :ActivityMatchBinding = DataBindingUtil
+        setContentView(R.layout.activity_match)
+
+        ringsG.add(R.id.rg1)
+        ringsG.add(R.id.rg2)
+        ringsG.add(R.id.rg3)
+        ringsG.add(R.id.rg4)
+        ringsG.add(R.id.rg5)
+        ringsG.add(R.id.rg6)
+        ringsG.add(R.id.rg7)
+        ringsG.add(R.id.rg8)
+        ringsG.add(R.id.rg9)
+
+
+        ringsY.add(R.id.possibility1Y)
+        ringsY.add(R.id.possibility2Y)
+        ringsY.add(R.id.possibility3Y)
+        ringsY.add(R.id.possibility4Y)
+        ringsY.add(R.id.possibility5Y)
+        ringsY.add(R.id.possibility6Y)
+        ringsY.add(R.id.possibility7Y)
+        ringsY.add(R.id.possibility8Y)
+        ringsY.add(R.id.possibility9Y)
+
+
+        ringsR.add(R.id.possibility1R)
+        ringsR.add(R.id.possibility2R)
+        ringsR.add(R.id.possibility3R)
+        ringsR.add(R.id.possibility4R)
+        ringsR.add(R.id.possibility5R)
+        ringsR.add(R.id.possibility6R)
+        ringsR.add(R.id.possibility7R)
+        ringsR.add(R.id.possibility8R)
+        ringsR.add(R.id.possibility9R)
+
+
+        //INZIO BIDING
+        val binding: ActivityMatchBinding = DataBindingUtil
             .setContentView(this, R.layout.activity_match)
-        binding.hc1 = HC1_model
-        binding.hc2 = HC2_model
-        binding.hc3 = HC3_model
-        binding.hc4 = HC4_model
-        binding.hc5 = HC5_model
-        binding.eRes1 = eRes[0]
-        binding.eRes2 = eRes[1]
-        binding.eRes3 = eRes[2]
-        binding.eRes4 = eRes[3]
-        binding.pRes1 = pRes[0]
-        binding.pRes2 = pRes[1]
-        binding.pRes3 = pRes[2]
-        binding.pRes4 = pRes[3]
+
+        binding.hc1 = mvm.hand.HC1_model
+        binding.hc2 = mvm.hand.HC2_model
+        binding.hc3 = mvm.hand.HC3_model
+        binding.hc4 = mvm.hand.HC4_model
+        binding.hc5 = mvm.hand.HC5_model
+
+        binding.eRes1 = mvm.eRes[0]
+        binding.eRes2 = mvm.eRes[1]
+        binding.eRes3 = mvm.eRes[2]
+        binding.eRes4 = mvm.eRes[3]
+
+        binding.pRes1 = mvm.pRes[0]
+        binding.pRes2 = mvm.pRes[1]
+        binding.pRes3 = mvm.pRes[2]
+        binding.pRes4 = mvm.pRes[3]
+
+        binding.explorer = mvm.explorer
+
+        binding.p1 = mvm.planets[0]
+        binding.p2 = mvm.planets[1]
+        binding.p3 = mvm.planets[2]
+        binding.p4 = mvm.planets[3]
+        binding.p5 = mvm.planets[4]
+        binding.p6 = mvm.planets[5]
+        binding.p7 = mvm.planets[6]
+        binding.p8 = mvm.planets[7]
+        binding.p9 = mvm.planets[8]
+
         binding.lifecycleOwner = this
 
+        //FINE BIDING
 
+        cardDAO = CardDB.getInstanceLoading(application).cardDAO()
+
+        deck = Deck("010102030405060708090a0b0c0d0e0f1011121314", cardDAO)
+
+
+        setHand()
+        setPlanets()
+        setRings()
+        setExplorer()
+
+        findViewById<ImageView>(R.id.match_background).setOnClickListener{
+            offAllRings()
+        }
+
+        mvm.hand.addCard(deck.draw())
+        mvm.hand.addCard(deck.draw())
+        mvm.hand.addCard(deck.draw())
+
+        findViewById<ImageView>(R.id.planet1).setOnClickListener {
+            for (r in mvm.pRes){
+                r.minRes(10)
+            }
+        }
+
+
+
+    }
+
+    //Funzione per impostare l'explorer
+    private fun setExplorer(){
+        findViewById<ConstraintLayout>(R.id.CardExplorer).setOnClickListener {
+            findViewById<ConstraintLayout>(R.id.CardExplorer).visibility = View.INVISIBLE
+        }
+
+        findViewById<ConstraintLayout>(R.id.CardExplorer).setOnDragListener{v,event->
+            when (event.action){
+                DragEvent.ACTION_DRAG_ENTERED->{findViewById<ConstraintLayout>(R.id.CardExplorer).visibility = View.INVISIBLE
+                    return@setOnDragListener false}
+            }
+            true
+        }
+    }
+
+    //Funzione per impostare la mano del giocatore
+    private fun setHand(){
+
+        //PRIMA CARTA
+        findViewById<ConstraintLayout>(R.id.HandCard1).setOnClickListener {
+            mvm.explorer.showCard(mvm.hand.read(0))
+            findViewById<ConstraintLayout>(R.id.CardExplorer).visibility = View.VISIBLE
+        }
+
+        findViewById<ConstraintLayout>(R.id.HandCard1).setOnLongClickListener {
+            val item = ClipData.Item("0")
+            val mime = arrayOf(ClipDescription.MIMETYPE_TEXT_PLAIN)
+            val data = ClipData("0",mime,item)
+
+            val dragShadow = View.DragShadowBuilder(it)
+            it.startDragAndDrop(data,dragShadow,it,0)
+
+            true
+        }
+
+        //SECONDA CARTA
+        findViewById<ConstraintLayout>(R.id.HandCard2).setOnClickListener {
+            mvm.explorer.showCard(mvm.hand.read(1))
+            findViewById<ConstraintLayout>(R.id.CardExplorer).visibility = View.VISIBLE
+        }
+
+        findViewById<ConstraintLayout>(R.id.HandCard2).setOnLongClickListener {
+            val item = ClipData.Item("1")
+            val mime = arrayOf(ClipDescription.MIMETYPE_TEXT_PLAIN)
+            val data = ClipData("1",mime,item)
+
+            val dragShadow = View.DragShadowBuilder(it)
+            it.startDragAndDrop(data,dragShadow,it,0)
+
+            true
+        }
+
+        //TERZA CARTA
+        findViewById<ConstraintLayout>(R.id.HandCard3).setOnClickListener {
+            mvm.explorer.showCard(mvm.hand.read(2))
+            findViewById<ConstraintLayout>(R.id.CardExplorer).visibility = View.VISIBLE
+        }
+
+        findViewById<ConstraintLayout>(R.id.HandCard3).setOnLongClickListener {
+            val item = ClipData.Item("2")
+            val mime = arrayOf(ClipDescription.MIMETYPE_TEXT_PLAIN)
+            val data = ClipData("2",mime,item)
+
+            val dragShadow = View.DragShadowBuilder(it)
+            it.startDragAndDrop(data,dragShadow,it,0)
+
+            true
+        }
+
+        //QUARTA CARTA
+        findViewById<ConstraintLayout>(R.id.HandCard4).setOnClickListener {
+            mvm.explorer.showCard(mvm.hand.read(3))
+            findViewById<ConstraintLayout>(R.id.CardExplorer).visibility = View.VISIBLE
+        }
+
+        findViewById<ConstraintLayout>(R.id.HandCard4).setOnLongClickListener {
+            val item = ClipData.Item("3")
+            val mime = arrayOf(ClipDescription.MIMETYPE_TEXT_PLAIN)
+            val data = ClipData("3",mime,item)
+
+            val dragShadow = View.DragShadowBuilder(it)
+            it.startDragAndDrop(data,dragShadow,it,0)
+
+            true
+        }
+
+        //QUINTA CARTA
+        findViewById<ConstraintLayout>(R.id.HandCard5).setOnClickListener {
+            mvm.explorer.showCard(mvm.hand.read(4))
+            findViewById<ConstraintLayout>(R.id.CardExplorer).visibility = View.VISIBLE
+        }
+
+        findViewById<ConstraintLayout>(R.id.HandCard5).setOnLongClickListener {
+            val item = ClipData.Item("4")
+            val mime = arrayOf(ClipDescription.MIMETYPE_TEXT_PLAIN)
+            val data = ClipData("4",mime,item)
+
+            val dragShadow = View.DragShadowBuilder(it)
+            it.startDragAndDrop(data,dragShadow,it,0)
+
+            true
+        }
+    }
+
+    //Funzione per impostare i pianeti
+    private fun setPlanets() {
+
+        val planet = mutableListOf<ImageView>()
+
+        planet.add(findViewById(R.id.planet1))
+        planet.add(findViewById(R.id.planet2))
+        planet.add(findViewById(R.id.planet3))
+        planet.add(findViewById(R.id.planet4))
+        planet.add(findViewById(R.id.planet5))
+        planet.add(findViewById(R.id.planet6))
+        planet.add(findViewById(R.id.planet7))
+        planet.add(findViewById(R.id.planet8))
+        planet.add(findViewById(R.id.planet9))
+
+
+        val cOnPlanet = mutableListOf<ConstraintLayout>()
+        cOnPlanet.add(findViewById(R.id.ConP1))
+        cOnPlanet.add(findViewById(R.id.ConP2))
+        cOnPlanet.add(findViewById(R.id.ConP3))
+        cOnPlanet.add(findViewById(R.id.ConP4))
+        cOnPlanet.add(findViewById(R.id.ConP5))
+        cOnPlanet.add(findViewById(R.id.ConP6))
+        cOnPlanet.add(findViewById(R.id.ConP7))
+        cOnPlanet.add(findViewById(R.id.ConP8))
+        cOnPlanet.add(findViewById(R.id.ConP9))
+
+        for (i in 0..8) {
+
+            if (i<3) {
+                planet[i].setOnDragListener { v, event ->
+                    when (event.action) {
+
+                        DragEvent.ACTION_DRAG_STARTED -> {
+                            if (!mvm.planets[i].controlled) {
+                                findViewById<ImageView>(ringsG[i]).visibility = View.VISIBLE
+                                return@setOnDragListener true
+                            }
+                            return@setOnDragListener !mvm.planets[i].controlled
+                        }
+
+                        DragEvent.ACTION_DRAG_ENDED -> {
+                            findViewById<ImageView>(ringsG[i]).visibility = View.INVISIBLE
+                        }
+
+                        DragEvent.ACTION_DROP -> {
+
+                            val item = event.clipData.getItemAt(0)
+                            val card = item.text
+                            val c = mvm.hand.read(card.toString().toInt())
+
+                            if (mvm.pRes[0].read() >= c.res1 && mvm.pRes[1].read() >= c.res2 &&
+                                mvm.pRes[2].read() >= c.res3 && mvm.pRes[3].read() >= c.res4
+                            ) {
+                                mvm.pRes[0].useRes(c.res1)
+                                mvm.pRes[1].useRes(c.res2)
+                                mvm.pRes[2].useRes(c.res3)
+                                mvm.pRes[3].useRes(c.res4)
+
+                                mvm.planets[i].moveTo(mvm.hand.TakeCard(card.toString().toInt()))
+                            }
+                            return@setOnDragListener true
+                        }
+                    }
+                    true
+                }
+            }
+
+            cOnPlanet[i].setOnLongClickListener {
+                mvm.explorer.showCard(mvm.planets[i].read())
+                true
+            }
+
+            cOnPlanet[i].setOnClickListener {
+                activeCard = i
+                findViewById<ImageView>(ringsY[i]).visibility = View.VISIBLE
+                val range1 = mvm.planets[i].getRange(1)
+                for (c in range1) {
+                    if (mvm.planets[c].controlled) {
+                        if (mvm.planets[c].read().player == 1) findViewById<ImageView>(ringsR[c]).visibility = View.VISIBLE
+                    } else {
+                        findViewById<ImageView>(ringsG[c]).visibility = View.VISIBLE
+                    }
+                }
+            }
+
+        }
+    }
+
+    fun setRings(){
+        for (c in 0..8){
+            findViewById<ImageView>(ringsY[c]).setOnClickListener {
+                val m = mvm.planets[c].takeRes()
+                for (i in 0..3){
+                    mvm.pRes[i].minRes(m[i])
+                }
+                offAllRings()
+            }
+
+            findViewById<ImageView>(ringsG[c]).setOnClickListener {
+                mvm.planets[c].moveTo(mvm.planets[activeCard].moveFrom())
+                offAllRings()
+            }
+
+            findViewById<ImageView>(ringsR[c]).setOnClickListener {
+                mvm.planets[c].takeDamage(mvm.planets[activeCard].attack.value!!)
+                mvm.planets[activeCard].takeDamage(mvm.planets[c].attack.value!!)
+                offAllRings()
+            }
+        }
+
+    }
+
+
+
+    fun offAllRings(){
+        activeCard = -1
+        for (i in 0..8){
+            findViewById<ImageView>(ringsR[i]).visibility = View.INVISIBLE
+            findViewById<ImageView>(ringsG[i]).visibility = View.INVISIBLE
+            findViewById<ImageView>(ringsY[i]).visibility = View.INVISIBLE
+        }
     }
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
@@ -66,3 +377,4 @@ class MatchActivity : AppCompatActivity() {
                 or View.SYSTEM_UI_FLAG_FULLSCREEN)
     }
 }
+

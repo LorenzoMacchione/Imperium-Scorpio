@@ -5,7 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.imperium_scorpio.database.Cards
 
-class Explorer: ViewModel() {
+class Explorer {
+
     private val _attack= MutableLiveData<Int>(0)
     val attack: LiveData<Int>
         get() = _attack

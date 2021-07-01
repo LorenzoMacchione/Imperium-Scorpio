@@ -1,12 +1,16 @@
 package com.example.imperium_scorpio.match.viewmodels
 
-import android.graphics.drawable.Drawable
+import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.example.imperium_scorpio.database.Cards
+import kotlin.properties.Delegates
 
-class SmallCard : ViewModel() {
+open class SmallCard {
+
+     lateinit var card: Cards
+
+
 
     private val _attack= MutableLiveData<Int>(0)
     val attack: LiveData<Int>
@@ -19,7 +23,6 @@ class SmallCard : ViewModel() {
     private val _mining= MutableLiveData<Int>(0)
     val mining: LiveData<Int>
         get() = _mining
-
 
     private val _r1= MutableLiveData<Int>(-1)
     val r1: LiveData<Int>
@@ -37,8 +40,55 @@ class SmallCard : ViewModel() {
     val r4: LiveData<Int>
         get() = _r4
 
+    private val _visibility = MutableLiveData<Int>(0)
+    val visibility: LiveData<Int>
+        get() = _visibility
+
+    var id: Int by Delegates.observable(0){ property, oldValue, newValue ->
+        if (newValue==-1){
+            off()
+        }else{
+            on()
+        }
+    }
+
+    init {
+        blank()
+    }
+
+    fun read():Cards{
+        return card
+    }
+
+    fun takeDamage(i: Int): Char{
+        _hp.value = _hp.value?.minus(i)
+        if (_hp.value!! <= 0) blank()
+        if (_hp.value!! <card.hp) return '<'
+        if (_hp.value!! >card.hp) return '>'
+        return '='
+
+    }
+
+    fun heal(i: Int): Char{
+        _hp.value = _hp.value?.plus(i)
+        if (_hp.value!! >=card.hp){
+            _hp.value = card.hp
+            return '='
+        }
+        return '<'
+    }
+
+    fun off(){
+        _visibility.value = View.INVISIBLE
+    }
+
+    fun on (){
+        _visibility.value = View.VISIBLE
+    }
 
     fun newCard(c:Cards){
+        this.card=c
+        id = c.id
         _attack.value = c.attack
         _hp.value = c.hp
         _mining.value = c.mining
@@ -48,4 +98,9 @@ class SmallCard : ViewModel() {
         _r4.value = c.res4
 
     }
+
+    open fun blank(){
+        newCard( Cards(-1,"0",-1,-1,-1,-1,"-1",-1,-1,-1,-1))
+    }
 }
+
