@@ -1,18 +1,27 @@
 package com.example.imperium_scorpio.match
+import android.app.Activity
 import android.content.ClipData
 import android.content.ClipDescription
+import android.graphics.Color
+import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.DragEvent
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.DataBindingUtil
 import com.example.imperium_scorpio.R
 import com.example.imperium_scorpio.database.CardDAO
 import com.example.imperium_scorpio.database.CardDB
+import com.example.imperium_scorpio.database.Cards
 import com.example.imperium_scorpio.databinding.ActivityMatchBinding
+import org.w3c.dom.Text
 
 
 class MatchActivity : AppCompatActivity() {
@@ -110,19 +119,28 @@ class MatchActivity : AppCompatActivity() {
         setPlanets()
         setRings()
         setExplorer()
+        setButton()
 
         findViewById<ImageView>(R.id.match_background).setOnClickListener{
             offAllRings()
+            offAllResButton()
         }
 
         mvm.hand.addCard(deck.draw())
         mvm.hand.addCard(deck.draw())
         mvm.hand.addCard(deck.draw())
 
+        findViewById<TextView>(R.id.win).setOnClickListener{finish()}
+        findViewById<TextView>(R.id.next).setOnClickListener{finish()}
+
         findViewById<ImageView>(R.id.planet1).setOnClickListener {
             for (r in mvm.pRes){
                 r.minRes(10)
             }
+        }
+
+        findViewById<ImageView>(R.id.planet2).setOnClickListener {
+            mvm.planets[0].moveTo(Cards(1, "ciao",1,1,1,1,"Bravo",1,1,1,1,1))
         }
 
 
@@ -145,7 +163,7 @@ class MatchActivity : AppCompatActivity() {
     }
 
     //Funzione per impostare la mano del giocatore
-    private fun setHand(){
+    private fun setHand() {
 
         //PRIMA CARTA
         findViewById<ConstraintLayout>(R.id.HandCard1).setOnClickListener {
@@ -156,10 +174,10 @@ class MatchActivity : AppCompatActivity() {
         findViewById<ConstraintLayout>(R.id.HandCard1).setOnLongClickListener {
             val item = ClipData.Item("0")
             val mime = arrayOf(ClipDescription.MIMETYPE_TEXT_PLAIN)
-            val data = ClipData("0",mime,item)
+            val data = ClipData("0", mime, item)
 
             val dragShadow = View.DragShadowBuilder(it)
-            it.startDragAndDrop(data,dragShadow,it,0)
+            it.startDragAndDrop(data, dragShadow, it, 0)
 
             true
         }
@@ -173,10 +191,10 @@ class MatchActivity : AppCompatActivity() {
         findViewById<ConstraintLayout>(R.id.HandCard2).setOnLongClickListener {
             val item = ClipData.Item("1")
             val mime = arrayOf(ClipDescription.MIMETYPE_TEXT_PLAIN)
-            val data = ClipData("1",mime,item)
+            val data = ClipData("1", mime, item)
 
             val dragShadow = View.DragShadowBuilder(it)
-            it.startDragAndDrop(data,dragShadow,it,0)
+            it.startDragAndDrop(data, dragShadow, it, 0)
 
             true
         }
@@ -190,10 +208,10 @@ class MatchActivity : AppCompatActivity() {
         findViewById<ConstraintLayout>(R.id.HandCard3).setOnLongClickListener {
             val item = ClipData.Item("2")
             val mime = arrayOf(ClipDescription.MIMETYPE_TEXT_PLAIN)
-            val data = ClipData("2",mime,item)
+            val data = ClipData("2", mime, item)
 
             val dragShadow = View.DragShadowBuilder(it)
-            it.startDragAndDrop(data,dragShadow,it,0)
+            it.startDragAndDrop(data, dragShadow, it, 0)
 
             true
         }
@@ -207,10 +225,10 @@ class MatchActivity : AppCompatActivity() {
         findViewById<ConstraintLayout>(R.id.HandCard4).setOnLongClickListener {
             val item = ClipData.Item("3")
             val mime = arrayOf(ClipDescription.MIMETYPE_TEXT_PLAIN)
-            val data = ClipData("3",mime,item)
+            val data = ClipData("3", mime, item)
 
             val dragShadow = View.DragShadowBuilder(it)
-            it.startDragAndDrop(data,dragShadow,it,0)
+            it.startDragAndDrop(data, dragShadow, it, 0)
 
             true
         }
@@ -224,13 +242,76 @@ class MatchActivity : AppCompatActivity() {
         findViewById<ConstraintLayout>(R.id.HandCard5).setOnLongClickListener {
             val item = ClipData.Item("4")
             val mime = arrayOf(ClipDescription.MIMETYPE_TEXT_PLAIN)
-            val data = ClipData("4",mime,item)
+            val data = ClipData("4", mime, item)
 
             val dragShadow = View.DragShadowBuilder(it)
-            it.startDragAndDrop(data,dragShadow,it,0)
+            it.startDragAndDrop(data, dragShadow, it, 0)
 
             true
         }
+    }
+        //Funzione per impostare i bottoni drawRes
+        private fun setButton() {
+
+            val buttons = mutableListOf<Int>()
+            buttons.add(R.id.drawRes1)
+            buttons.add(R.id.drawRes2)
+            buttons.add(R.id.drawRes3)
+            buttons.add(R.id.drawRes4)
+
+            findViewById<TextView>(R.id.R1).setOnClickListener {
+                offAllResButton()
+                findViewById<Button>(R.id.drawRes1).visibility = View.VISIBLE
+            }
+
+            findViewById<TextView>(R.id.R2).setOnClickListener {
+                offAllResButton()
+                findViewById<Button>(R.id.drawRes2).visibility = View.VISIBLE
+            }
+
+            findViewById<TextView>(R.id.R3).setOnClickListener {
+                offAllResButton()
+                findViewById<Button>(R.id.drawRes3).visibility = View.VISIBLE
+            }
+
+            findViewById<TextView>(R.id.R4).setOnClickListener {
+                offAllResButton()
+                findViewById<Button>(R.id.drawRes4).visibility = View.VISIBLE
+            }
+
+
+            for (i in buttons) {
+
+
+                findViewById<Button>(i).setOnClickListener {
+                    if (mvm.hand.size() != 5) {
+                        mvm.pRes[buttons.indexOf(i)].useRes(1)
+                        mvm.hand.addCard(deck.draw())
+                    } else {
+                        Toast.makeText(this, "La mano è piena", Toast.LENGTH_LONG).show()
+                    }
+                    findViewById<Button>(i).visibility = View.INVISIBLE
+                }
+                findViewById<Button>(i).setOnDragListener { v, event ->
+                    when (event.action) {
+
+                        DragEvent.ACTION_DRAG_STARTED -> {
+                            findViewById<Button>(i).visibility = View.INVISIBLE
+                            return@setOnDragListener false
+                        }
+                    }
+                    true
+                }
+            }
+        }
+
+
+
+    private fun offAllResButton() {
+        findViewById<Button>(R.id.drawRes1).visibility = View.INVISIBLE
+        findViewById<Button>(R.id.drawRes2).visibility = View.INVISIBLE
+        findViewById<Button>(R.id.drawRes3).visibility = View.INVISIBLE
+        findViewById<Button>(R.id.drawRes4).visibility = View.INVISIBLE
     }
 
     //Funzione per impostare i pianeti
@@ -293,6 +374,8 @@ class MatchActivity : AppCompatActivity() {
                                 mvm.pRes[3].useRes(c.res4)
 
                                 mvm.planets[i].moveTo(mvm.hand.TakeCard(card.toString().toInt()))
+                            }else{
+                                Toast.makeText(this,"Non hai abbastanza risorse",Toast.LENGTH_LONG).show()
                             }
                             return@setOnDragListener true
                         }
@@ -308,6 +391,7 @@ class MatchActivity : AppCompatActivity() {
 
             cOnPlanet[i].setOnClickListener {
                 activeCard = i
+                offAllResButton()
                 findViewById<ImageView>(ringsY[i]).visibility = View.VISIBLE
                 val range1 = mvm.planets[i].getRange(1)
                 for (c in range1) {
@@ -335,6 +419,27 @@ class MatchActivity : AppCompatActivity() {
             findViewById<ImageView>(ringsG[c]).setOnClickListener {
                 mvm.planets[c].moveTo(mvm.planets[activeCard].moveFrom())
                 offAllRings()
+                if (c==0) {
+                    if (mvm.planets[0].card.player!=0){
+                        findViewById<TextView>(R.id.win).text = "LOSE"
+                        findViewById<TextView>(R.id.win).setTextColor(Color.RED)
+                        findViewById<TextView>(R.id.win).textSize = 70F
+                        findViewById<TextView>(R.id.win).setTypeface(ResourcesCompat.getFont(this,R.font.laceration))
+                        findViewById<TextView>(R.id.win).visibility = View.VISIBLE
+
+                        findViewById<TextView>(R.id.next).setTextColor(Color.RED)
+                        findViewById<TextView>(R.id.next).textSize = 20F
+                        findViewById<TextView>(R.id.next).setTypeface(ResourcesCompat.getFont(this,R.font.laceration))
+                        findViewById<TextView>(R.id.next).visibility = View.VISIBLE
+                    }
+                }
+                if (c==8) {
+                    if (mvm.planets[c].card.player==0) {
+                        findViewById<TextView>(R.id.win).visibility = View.VISIBLE
+
+                        findViewById<TextView>(R.id.next).visibility = View.VISIBLE
+                    }
+                }
             }
 
             findViewById<ImageView>(ringsR[c]).setOnClickListener {

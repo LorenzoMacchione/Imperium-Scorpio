@@ -222,17 +222,6 @@
         app:layout_constraintStart_toEndOf="@+id/planet7"
         app:srcCompat="@drawable/islands" />
 
-    <Button
-        android:id="@+id/button"
-        style="@style/Widget.AppCompat.Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:fontFamily="sans-serif"
-        android:text="@string/wait"
-        app:layout_constraintBottom_toTopOf="@+id/player_board"
-        app:layout_constraintEnd_toEndOf="parent" />
-
     <TextView
         android:id="@+id/eR1"
         android:layout_width="wrap_content"
@@ -381,14 +370,25 @@
 
 
         <ImageView
-            android:id="@+id/Hc3Img"
+            android:id="@+id/Hc3bg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/eroe" />
+            app:srcCompat="@drawable/small_card_background" />
+
+        <ImageView
+            android:id="@+id/Hc3Img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@{hc3.img}" />
 
         <TextView
             android:id="@+id/hc3Hp"
@@ -513,14 +513,25 @@
         android:visibility="@{hc4.visibility}">
 
         <ImageView
-            android:id="@+id/Hc4Img"
+            android:id="@+id/Hc4bg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/eroe" />
+            app:srcCompat="@drawable/small_card_background" />
+
+        <ImageView
+            android:id="@+id/Hc4Img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@{hc4.img}" />
 
         <TextView
             android:id="@+id/hc4Hp"
@@ -645,14 +656,25 @@
         android:visibility="@{hc5.visibility}">
 
         <ImageView
-            android:id="@+id/Hc5Img"
+            android:id="@+id/Hc5bg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/eroe" />
+            app:srcCompat="@drawable/small_card_background" />
+
+        <ImageView
+            android:id="@+id/Hc5Img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@{hc5.img}" />
 
         <TextView
             android:id="@+id/hc5Hp"
@@ -777,6 +799,17 @@
         android:visibility="@{hc1.visibility}">
 
         <ImageView
+            android:id="@+id/Hc1bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/small_card_background" />
+
+        <ImageView
             android:id="@+id/Hc1Img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -785,7 +818,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/eroe" />
+            app:srcCompat="@{hc1.img}" />
 
         <TextView
             android:id="@+id/Hc1At"
@@ -910,6 +943,17 @@
         android:visibility="@{hc2.visibility}">
 
         <ImageView
+            android:id="@+id/Hc2bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/small_card_background" />
+
+        <ImageView
             android:id="@+id/Hc2Img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -918,7 +962,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/eroe" />
+            app:srcCompat="@{hc2.img}" />
 
         <TextView
             android:id="@+id/hc2Hp"
@@ -1111,7 +1155,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/drawres1"
+        android:id="@+id/drawRes1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/draw"
@@ -1122,7 +1166,7 @@
         tools:visibility="gone" />
 
     <Button
-        android:id="@+id/drawres2"
+        android:id="@+id/drawRes2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
@@ -1135,7 +1179,7 @@
         tools:visibility="gone" />
 
     <Button
-        android:id="@+id/drawres3"
+        android:id="@+id/drawRes3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/draw"
@@ -1146,7 +1190,7 @@
         tools:visibility="gone" />
 
     <Button
-        android:id="@+id/drawres4"
+        android:id="@+id/drawRes4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/draw"
@@ -1168,6 +1212,17 @@
         app:layout_constraintTop_toTopOf="@+id/planet1">
 
         <ImageView
+            android:id="@+id/CP1bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/small_card_background" />
+
+        <ImageView
             android:id="@+id/CP1Img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -1176,7 +1231,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/eroe" />
+            app:image="@{p1.img}" />
 
         <TextView
             android:id="@+id/CP1At"
@@ -1302,6 +1357,17 @@
         app:layout_constraintTop_toTopOf="@+id/planet2">
 
         <ImageView
+            android:id="@+id/CP2bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/small_card_background" />
+
+        <ImageView
             android:id="@+id/CP2Img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -1310,7 +1376,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/eroe" />
+            app:srcCompat="@{p2.img}" />
 
         <TextView
             android:id="@+id/CP2At"
@@ -1437,6 +1503,17 @@
         app:layout_constraintTop_toTopOf="@+id/planet3">
 
         <ImageView
+            android:id="@+id/CP3bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/small_card_background" />
+
+        <ImageView
             android:id="@+id/CP3Img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -1445,7 +1522,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/eroe" />
+            app:srcCompat="@{p3.img}" />
 
         <TextView
             android:id="@+id/CP3At"
@@ -1573,6 +1650,17 @@
         app:layout_constraintTop_toTopOf="@+id/planet4">
 
         <ImageView
+            android:id="@+id/CP4bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/small_card_background" />
+
+        <ImageView
             android:id="@+id/CP4Img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -1581,7 +1669,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/eroe" />
+            app:srcCompat="@{p4.img}" />
 
         <TextView
             android:id="@+id/CP4At"
@@ -1708,6 +1796,17 @@
         app:layout_constraintTop_toTopOf="@+id/planet5">
 
         <ImageView
+            android:id="@+id/CP5bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/small_card_background" />
+
+        <ImageView
             android:id="@+id/CP5Img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -1716,7 +1815,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/eroe" />
+            app:srcCompat="@{p5.img}" />
 
         <TextView
             android:id="@+id/CP5At"
@@ -1844,6 +1943,17 @@
         app:layout_constraintTop_toTopOf="@+id/planet6">
 
         <ImageView
+            android:id="@+id/CP6bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/small_card_background" />
+
+        <ImageView
             android:id="@+id/CP6Img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -1852,7 +1962,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/eroe" />
+            app:srcCompat="@{p6.img}" />
 
         <TextView
             android:id="@+id/CP6At"
@@ -1980,6 +2090,17 @@
         app:layout_constraintTop_toTopOf="@+id/planet7">
 
         <ImageView
+            android:id="@+id/CP7bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/small_card_background" />
+
+        <ImageView
             android:id="@+id/CP7Img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -1988,7 +2109,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/eroe" />
+            app:srcCompat="@{p7.img}" />
 
         <TextView
             android:id="@+id/CP7At"
@@ -2114,6 +2235,17 @@
         app:layout_constraintTop_toTopOf="@+id/planet8">
 
         <ImageView
+            android:id="@+id/CP8bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/small_card_background" />
+
+        <ImageView
             android:id="@+id/CP8Img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -2122,7 +2254,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/eroe" />
+            app:srcCompat="@{p8.img}" />
 
         <TextView
             android:id="@+id/CP8At"
@@ -2249,6 +2381,17 @@
         app:layout_constraintTop_toTopOf="@+id/planet9">
 
         <ImageView
+            android:id="@+id/CP9bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/small_card_background" />
+
+        <ImageView
             android:id="@+id/CP9Img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -2257,7 +2400,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/eroe" />
+            app:srcCompat="@{p9.img}" />
 
         <TextView
             android:id="@+id/CP9At"
@@ -2863,6 +3006,44 @@
             app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/win"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/black"
+        android:backgroundTint="@color/material_on_background_emphasis_medium"
+        android:fontFamily="@font/sf_outer_limits_distupright"
+        android:gravity="center_vertical"
+        android:text="WIN"
+        android:textAlignment="center"
+        android:textColor="?android:attr/colorPressedHighlight"
+        android:textSize="96dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="gone" />
+
+    <TextView
+        android:id="@+id/next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sf_outer_limits_distupright"
+        android:text="Tocca per continuare"
+        android:textAlignment="center"
+        android:textColor="?android:attr/colorPressedHighlight"
+        android:textSize="30dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.595"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.604"
+        tools:visibility="gone" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

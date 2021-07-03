@@ -1,9 +1,12 @@
 package com.example.imperium_scorpio.match.viewmodels
 
+import android.app.Activity
+import android.graphics.drawable.Drawable
 import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.imperium_scorpio.database.Cards
+import java.lang.ref.Reference
 import kotlin.properties.Delegates
 
 open class SmallCard {
@@ -11,6 +14,9 @@ open class SmallCard {
      lateinit var card: Cards
 
 
+    private val _img= MutableLiveData<String>("")
+    val img: LiveData<String>
+        get() = _img
 
     private val _attack= MutableLiveData<Int>(0)
     val attack: LiveData<Int>
@@ -96,6 +102,7 @@ open class SmallCard {
         _r2.value = c.res2
         _r3.value = c.res3
         _r4.value = c.res4
+        _img.value = "res/drawable/card_"+c.id
 
     }
 
