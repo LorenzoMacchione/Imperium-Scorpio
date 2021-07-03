@@ -1,10 +1,11 @@
 package com.example.imperium_scorpio.match.viewmodels
 
+import android.content.Context
 import com.example.imperium_scorpio.database.Cards
-import java.text.FieldPosition
 
 
-class Planet(val position: Int, val danger: Int, val res1:Boolean, val res2:Boolean, val res3:Boolean, val res4:Boolean, var controlled: Boolean = false): SmallCard() {
+class Planet(val position: Int, val danger: Int, val res1:Boolean, val res2:Boolean,
+             val res3:Boolean, val res4:Boolean,context: Context, var controlled: Boolean = false): SmallCard(context) {
 
     val range1 = mutableListOf<Int>()
 

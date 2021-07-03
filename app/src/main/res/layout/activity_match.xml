@@ -388,7 +388,8 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@{hc3.img}" />
+            app:srcCompat="@drawable/eroe"
+            app:imageDrawable="@{hc3.img}" />
 
         <TextView
             android:id="@+id/hc3Hp"
@@ -531,7 +532,8 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@{hc4.img}" />
+            app:srcCompat="@drawable/eroe"
+            app:imageDrawable="@{hc4.img}" />
 
         <TextView
             android:id="@+id/hc4Hp"
@@ -674,7 +676,8 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@{hc5.img}" />
+            app:srcCompat="@drawable/eroe"
+            app:imageDrawable="@{hc5.img}" />
 
         <TextView
             android:id="@+id/hc5Hp"
@@ -818,7 +821,8 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@{hc1.img}" />
+            app:srcCompat="@drawable/eroe"
+            app:imageDrawable="@{hc1.img}" />
 
         <TextView
             android:id="@+id/Hc1At"
@@ -962,7 +966,8 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@{hc2.img}" />
+            app:srcCompat="@drawable/eroe"
+            app:imageDrawable="@{hc2.img}" />
 
         <TextView
             android:id="@+id/hc2Hp"
@@ -1231,7 +1236,8 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:image="@{p1.img}" />
+            app:srcCompat="@drawable/eroe"
+            app:imageDrawable="@{p1.img}" />
 
         <TextView
             android:id="@+id/CP1At"
@@ -1376,7 +1382,8 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@{p2.img}" />
+            app:srcCompat="@drawable/eroe"
+            app:imageDrawable="@{p2.img}" />
 
         <TextView
             android:id="@+id/CP2At"
@@ -1522,7 +1529,8 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@{p3.img}" />
+            app:srcCompat="@drawable/eroe"
+            app:imageDrawable="@{p3.img}" />
 
         <TextView
             android:id="@+id/CP3At"
@@ -1669,7 +1677,8 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@{p4.img}" />
+            app:srcCompat="@drawable/eroe"
+            app:imageDrawable="@{p4.img}" />
 
         <TextView
             android:id="@+id/CP4At"
@@ -1815,7 +1824,8 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@{p5.img}" />
+            app:srcCompat="@drawable/eroe"
+            app:imageDrawable="@{p5.img}" />
 
         <TextView
             android:id="@+id/CP5At"
@@ -1962,7 +1972,8 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@{p6.img}" />
+            app:srcCompat="@drawable/eroe"
+            app:imageDrawable="@{p6.img}" />
 
         <TextView
             android:id="@+id/CP6At"
@@ -2109,7 +2120,8 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@{p7.img}" />
+            app:srcCompat="@drawable/eroe"
+            app:imageDrawable="@{p7.img}"/>
 
         <TextView
             android:id="@+id/CP7At"
@@ -2254,7 +2266,8 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@{p8.img}" />
+            app:srcCompat="@drawable/eroe"
+            app:imageDrawable="@{p8.img}" />
 
         <TextView
             android:id="@+id/CP8At"
@@ -2400,7 +2413,8 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@{p9.img}" />
+            app:srcCompat="@drawable/eroe"
+            app:imageDrawable="@{p9.img}" />
 
         <TextView
             android:id="@+id/CP9At"
@@ -2850,7 +2864,7 @@
         app:layout_constraintStart_toStartOf="@+id/match_background"
         app:layout_constraintTop_toTopOf="@+id/match_background"
         app:layout_constraintVertical_bias="0.23"
-        tools:visibility="gone">
+        tools:visibility="visible">
 
         <ImageView
             android:id="@+id/CardBackGround"
@@ -2868,12 +2882,13 @@
             android:id="@+id/CardImmage"
             android:layout_width="201dp"
             android:layout_height="145dp"
+            app:imageDrawable="@{explorer.img}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.717"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/CardBackGround"
-            app:layout_constraintVertical_bias="0.129"
+            app:layout_constraintVertical_bias="0.1"
             app:srcCompat="@android:drawable/divider_horizontal_bright" />
 
         <TextView
@@ -3014,9 +3029,8 @@
         android:background="@color/black"
         android:backgroundTint="@color/material_on_background_emphasis_medium"
         android:fontFamily="@font/sf_outer_limits_distupright"
-        android:gravity="center_vertical"
+        android:gravity="center"
         android:text="WIN"
-        android:textAlignment="center"
         android:textColor="?android:attr/colorPressedHighlight"
         android:textSize="96dp"
         android:visibility="invisible"
@@ -3024,7 +3038,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="gone" />
+        tools:visibility="gone"
+        />
 
     <TextView
         android:id="@+id/next"

@@ -1,14 +1,15 @@
 package com.example.imperium_scorpio.match
 
+import android.content.Context
 import androidx.lifecycle.ViewModel
 import com.example.imperium_scorpio.match.viewmodels.Explorer
 import com.example.imperium_scorpio.match.viewmodels.Hand
 import com.example.imperium_scorpio.match.viewmodels.Planet
 import com.example.imperium_scorpio.match.viewmodels.Resource
 
-class MatchViewModel : ViewModel() {
+class MatchViewModel() : ViewModel() {
 
-    val hand= Hand()
+    lateinit var hand: Hand
 
     //Risorse avversario
     private val eRes1 = Resource()
@@ -24,21 +25,21 @@ class MatchViewModel : ViewModel() {
     private val pRes4 = Resource()
     val pRes = mutableListOf<Resource>()
 
-    val explorer = Explorer()
+    lateinit var explorer : Explorer
 
 
 
     //Pianeti
     val planets = mutableListOf<Planet>()
-    private val p1 =Planet(0,1,true,false,true,false)
-    private val p2 = Planet(1,1,false,true,false,true)
-    private val p3 = Planet(2,1,true,true,false,false)
-    private val p4 = Planet(3,1,false,false,true,true)
-    private val p5 = Planet(4,3,true,true,true,true)
-    private val p6 = Planet(5,1,false,false,true,true)
-    private val p7 = Planet(6,1,false,true,false,true)
-    private val p8 = Planet(7,1,true,true,false,false)
-    private val p9 = Planet(8,1,true,false,true,false)
+    private lateinit var p1 :Planet
+    private lateinit var p2 :Planet
+    private lateinit var p3 :Planet
+    private lateinit var p4 :Planet
+    private lateinit var p5 :Planet
+    private lateinit var p6 :Planet
+    private lateinit var p7 :Planet
+    private lateinit var p8 :Planet
+    private lateinit var p9 :Planet
 
 
     init {
@@ -53,6 +54,26 @@ class MatchViewModel : ViewModel() {
         pRes.add(pRes3)
         pRes.add(pRes4)
 
+
+
+    }
+
+    fun setContext(context: Context){
+
+        hand = Hand(context)
+
+        explorer = Explorer(context)
+
+        p1 =Planet(0,1,true,false,true,false,context)
+        p2 = Planet(1,1,false,true,false,true,context)
+        p3 = Planet(2,1,true,true,false,false,context)
+        p4 = Planet(3,1,false,false,true,true,context)
+        p5 = Planet(4,3,true,true,true,true,context)
+        p6 = Planet(5,1,false,false,true,true,context)
+        p7 = Planet(6,1,false,true,false,true,context)
+        p8 = Planet(7,1,true,true,false,false,context)
+        p9 = Planet(8,1,true,false,true,false,context)
+
         planets.add(p1)
         planets.add(p2)
         planets.add(p3)
@@ -62,7 +83,6 @@ class MatchViewModel : ViewModel() {
         planets.add(p7)
         planets.add(p8)
         planets.add(p9)
-
     }
 
 }

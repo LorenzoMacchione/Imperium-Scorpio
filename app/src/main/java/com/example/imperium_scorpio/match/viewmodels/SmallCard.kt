@@ -1,21 +1,19 @@
 package com.example.imperium_scorpio.match.viewmodels
 
-import android.app.Activity
+import android.content.Context
 import android.graphics.drawable.Drawable
 import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.imperium_scorpio.database.Cards
-import java.lang.ref.Reference
 import kotlin.properties.Delegates
 
-open class SmallCard {
+open class SmallCard(val context: Context) {
 
      lateinit var card: Cards
 
-
-    private val _img= MutableLiveData<String>("")
-    val img: LiveData<String>
+    private val _img= MutableLiveData<Drawable>()
+    val img: LiveData<Drawable>
         get() = _img
 
     private val _attack= MutableLiveData<Int>(0)
@@ -75,6 +73,8 @@ open class SmallCard {
 
     }
 
+
+
     fun heal(i: Int): Char{
         _hp.value = _hp.value?.plus(i)
         if (_hp.value!! >=card.hp){
@@ -94,16 +94,18 @@ open class SmallCard {
 
     fun newCard(c:Cards){
         this.card=c
-        id = c.id
-        _attack.value = c.attack
-        _hp.value = c.hp
-        _mining.value = c.mining
-        _r1.value = c.res1
-        _r2.value = c.res2
-        _r3.value = c.res3
-        _r4.value = c.res4
-        _img.value = "res/drawable/card_"+c.id
-
+            id = c.id
+            _attack.value = c.attack
+            _hp.value = c.hp
+            _mining.value = c.mining
+            _r1.value = c.res1
+            _r2.value = c.res2
+            _r3.value = c.res3
+            _r4.value = c.res4
+        if(c.id!=-1){
+            val resId: Int = context.resources.getIdentifier("card_"+c.id, "drawable", context.packageName)
+                _img.value = context.getDrawable(resId)
+        }
     }
 
     open fun blank(){

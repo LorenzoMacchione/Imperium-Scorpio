@@ -1,14 +1,15 @@
 package com.example.imperium_scorpio.match.viewmodels
+import android.content.Context
 import com.example.imperium_scorpio.database.Cards
 
-class Hand{
+class Hand(context: Context){
 
     //Carte del giocatore
-    val HC1_model = SmallCard()
-    val HC2_model = SmallCard()
-    val HC3_model = SmallCard()
-    val HC4_model = SmallCard()
-    val HC5_model = SmallCard()
+    val HC1_model = SmallCard(context)
+    val HC2_model = SmallCard(context)
+    val HC3_model = SmallCard(context)
+    val HC4_model = SmallCard(context)
+    val HC5_model = SmallCard(context)
     val hand = mutableListOf<SmallCard>()
 
 

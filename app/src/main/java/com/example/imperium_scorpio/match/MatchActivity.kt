@@ -37,9 +37,12 @@ class MatchActivity : AppCompatActivity() {
     val ringsG = mutableListOf<Int>()
     val ringsR = mutableListOf<Int>()
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_match)
+
+        mvm.setContext(this)
 
         ringsG.add(R.id.rg1)
         ringsG.add(R.id.rg2)
@@ -460,6 +463,10 @@ class MatchActivity : AppCompatActivity() {
             findViewById<ImageView>(ringsG[i]).visibility = View.INVISIBLE
             findViewById<ImageView>(ringsY[i]).visibility = View.INVISIBLE
         }
+    }
+
+    fun refreshImg(i:Int){
+
     }
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {

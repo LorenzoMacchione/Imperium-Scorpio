@@ -1,11 +1,17 @@
 package com.example.imperium_scorpio.match.viewmodels
 
+import android.content.Context
+import android.graphics.drawable.Drawable
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.imperium_scorpio.database.Cards
 
-class Explorer {
+class Explorer(val context: Context) {
+
+    private val _img= MutableLiveData<Drawable>()
+    val img: LiveData<Drawable>
+        get() = _img
 
     private val _attack= MutableLiveData<Int>(0)
     val attack: LiveData<Int>
@@ -53,6 +59,11 @@ class Explorer {
         _r2.value = c.res2
         _r3.value = c.res3
         _r4.value = c.res4
+
+        if(c.id!=-1){
+            val resId: Int = context.resources.getIdentifier("card_"+c.id, "drawable", context.packageName)
+            _img.value = context.getDrawable(resId)
+        }
 
     }
 }
