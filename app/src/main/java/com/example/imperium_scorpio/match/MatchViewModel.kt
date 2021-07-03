@@ -2,21 +2,16 @@ package com.example.imperium_scorpio.match
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
-import com.example.imperium_scorpio.match.viewmodels.Explorer
-import com.example.imperium_scorpio.match.viewmodels.Hand
-import com.example.imperium_scorpio.match.viewmodels.Planet
-import com.example.imperium_scorpio.match.viewmodels.Resource
+import com.example.imperium_scorpio.database.CardDAO
+import com.example.imperium_scorpio.match.viewmodels.*
 
 class MatchViewModel() : ViewModel() {
 
     lateinit var hand: Hand
 
-    //Risorse avversario
-    private val eRes1 = Resource()
-    private val eRes2 = Resource()
-    private val eRes3 = Resource()
-    private val eRes4 = Resource()
-    val eRes = mutableListOf<Resource>()
+    val enemy = Enemy()
+
+
 
     //Risorse giocatore
     private val pRes1 = Resource()
@@ -44,10 +39,7 @@ class MatchViewModel() : ViewModel() {
 
     init {
 
-        eRes.add(eRes1)
-        eRes.add(eRes2)
-        eRes.add(eRes3)
-        eRes.add(eRes4)
+
 
         pRes.add(pRes1)
         pRes.add(pRes2)
@@ -57,6 +49,7 @@ class MatchViewModel() : ViewModel() {
 
 
     }
+
 
     fun setContext(context: Context){
 

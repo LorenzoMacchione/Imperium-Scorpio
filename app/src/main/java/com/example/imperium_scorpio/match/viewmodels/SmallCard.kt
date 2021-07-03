@@ -16,31 +16,31 @@ open class SmallCard(val context: Context) {
     val img: LiveData<Drawable>
         get() = _img
 
-    private val _attack= MutableLiveData<Int>(0)
+    protected val _attack= MutableLiveData<Int>(0)
     val attack: LiveData<Int>
             get() = _attack
 
-    private val _hp= MutableLiveData<Int>(0)
+    protected val _hp= MutableLiveData<Int>(0)
     val hp: LiveData<Int>
         get() = _hp
 
-    private val _mining= MutableLiveData<Int>(0)
+    protected val _mining= MutableLiveData<Int>(0)
     val mining: LiveData<Int>
         get() = _mining
 
-    private val _r1= MutableLiveData<Int>(-1)
+    protected val _r1= MutableLiveData<Int>(-1)
     val r1: LiveData<Int>
         get() = _r1
 
-    private val _r2= MutableLiveData<Int>(0)
+    protected val _r2= MutableLiveData<Int>(0)
     val r2: LiveData<Int>
         get() = _r2
 
-    private val _r3= MutableLiveData<Int>(0)
+    protected val _r3= MutableLiveData<Int>(0)
     val r3: LiveData<Int>
         get() = _r3
 
-    private val _r4= MutableLiveData<Int>(0)
+    protected val _r4= MutableLiveData<Int>(0)
     val r4: LiveData<Int>
         get() = _r4
 
@@ -106,6 +106,19 @@ open class SmallCard(val context: Context) {
             val resId: Int = context.resources.getIdentifier("card_"+c.id, "drawable", context.packageName)
                 _img.value = context.getDrawable(resId)
         }
+    }
+
+    fun copy():SmallCard{
+        val s = SmallCard(context)
+        s.newCard(this.card)
+        s._attack.value = this.attack.value
+        s._hp.value = this.hp.value
+        s._mining.value = this.mining.value
+        s._r1.value = this.r1.value
+        s._r2.value = this.r2.value
+        s._r3.value = this.r3.value
+        s._r4.value = this.r4.value
+        return s
     }
 
     open fun blank(){

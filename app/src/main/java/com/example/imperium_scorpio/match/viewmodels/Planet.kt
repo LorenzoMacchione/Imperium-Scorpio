@@ -107,16 +107,23 @@ class Planet(val position: Int, val danger: Int, val res1:Boolean, val res2:Bool
     }
 
 
-    fun moveTo(c: Cards){
+    fun moveTo(c: SmallCard){
         if (!controlled)
         {
-            newCard(c)
+            newCard(c.card)
+            _attack.value = c.attack.value
+            _hp.value = c.hp.value
+            _mining.value = c.mining.value
+            _r1.value = c.r1.value
+            _r2.value = c.r2.value
+            _r3.value = c.r3.value
+            _r4.value = c.r4.value
             controlled=true
         }
     }
 
-    fun moveFrom():Cards{
-        val c = card
+    fun moveFrom():SmallCard{
+        val c = copy()
         blank()
         return c
     }

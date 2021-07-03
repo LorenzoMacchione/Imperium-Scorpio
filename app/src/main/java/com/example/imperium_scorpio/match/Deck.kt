@@ -5,7 +5,7 @@ import com.example.imperium_scorpio.database.CardDAO
 import com.example.imperium_scorpio.database.CardDB
 import com.example.imperium_scorpio.database.Cards
 
-class Deck(val code:String,cardDAO: CardDAO) {
+class Deck(val code:String, cardDAO: CardDAO) {
     val deck = mutableListOf<Cards>()
 
     init {

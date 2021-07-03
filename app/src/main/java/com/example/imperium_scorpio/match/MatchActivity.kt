@@ -1,9 +1,7 @@
 package com.example.imperium_scorpio.match
-import android.app.Activity
 import android.content.ClipData
 import android.content.ClipDescription
 import android.graphics.Color
-import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.DragEvent
@@ -21,7 +19,7 @@ import com.example.imperium_scorpio.database.CardDAO
 import com.example.imperium_scorpio.database.CardDB
 import com.example.imperium_scorpio.database.Cards
 import com.example.imperium_scorpio.databinding.ActivityMatchBinding
-import org.w3c.dom.Text
+import com.example.imperium_scorpio.match.viewmodels.SmallCard
 
 
 class MatchActivity : AppCompatActivity() {
@@ -87,10 +85,8 @@ class MatchActivity : AppCompatActivity() {
         binding.hc4 = mvm.hand.HC4_model
         binding.hc5 = mvm.hand.HC5_model
 
-        binding.eRes1 = mvm.eRes[0]
-        binding.eRes2 = mvm.eRes[1]
-        binding.eRes3 = mvm.eRes[2]
-        binding.eRes4 = mvm.eRes[3]
+        binding.enemy = mvm.enemy
+
 
         binding.pRes1 = mvm.pRes[0]
         binding.pRes2 = mvm.pRes[1]
@@ -133,6 +129,10 @@ class MatchActivity : AppCompatActivity() {
         mvm.hand.addCard(deck.draw())
         mvm.hand.addCard(deck.draw())
 
+        mvm.enemy.draw()
+        mvm.enemy.draw()
+        mvm.enemy.draw()
+
         findViewById<TextView>(R.id.win).setOnClickListener{finish()}
         findViewById<TextView>(R.id.next).setOnClickListener{finish()}
 
@@ -143,9 +143,16 @@ class MatchActivity : AppCompatActivity() {
         }
 
         findViewById<ImageView>(R.id.planet2).setOnClickListener {
-            mvm.planets[0].moveTo(Cards(1, "ciao",1,1,1,1,"Bravo",1,1,1,1,1))
+            val c = Cards(1, "ciao",1,1,1,1,"Bravo",1,1,1,1,1)
+            mvm.enemy.playCard(c)
+            val s = SmallCard(this)
+            s.newCard(c)
+            mvm.planets[0].moveTo(s)
         }
 
+        findViewById<ImageView>(R.id.planet3).setOnClickListener {
+            mvm.enemy.draw()
+        }
 
 
     }
@@ -376,7 +383,7 @@ class MatchActivity : AppCompatActivity() {
                                 mvm.pRes[2].useRes(c.res3)
                                 mvm.pRes[3].useRes(c.res4)
 
-                                mvm.planets[i].moveTo(mvm.hand.TakeCard(card.toString().toInt()))
+                                mvm.planets[i].moveTo(mvm.hand.takeCard(card.toString().toInt()))
                             }else{
                                 Toast.makeText(this,"Non hai abbastanza risorse",Toast.LENGTH_LONG).show()
                             }

@@ -30,7 +30,7 @@ class Hand(context: Context){
         }
     }
 
-    fun Randomtoss(){
+    fun randomtoss(){
         if (size()>0){
             val i = (0 until size()).random()
             hand.removeAt(i)
@@ -40,16 +40,14 @@ class Hand(context: Context){
 
 
 
-    fun refresh (){
+    private fun refresh (){
         val m = mutableListOf<Cards>()
         for (c in hand) {
             if (c.r1.value != -1) {
                 m.add(c.card)
             }
-            var i = 0
-            for (c in m) {
+            for ((i, c) in m.withIndex()) {
                 hand[i].newCard(c)
-                i++
             }
 
         }
@@ -72,8 +70,8 @@ class Hand(context: Context){
         return hand[i].read()
     }
 
-    fun TakeCard(i: Int) :Cards {
-        val c = hand[i].read()
+    fun takeCard(i: Int) :SmallCard {
+        val c = hand[i].copy()
         hand[i].blank()
         refresh()
         return c
