@@ -3,31 +3,36 @@ package com.example.imperium_scorpio.home
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import com.example.imperium_scorpio.Lock
+import androidx.navigation.findNavController
 import com.example.imperium_scorpio.R
+import com.example.imperium_scorpio.database.CardDB
 import com.example.imperium_scorpio.match.MatchActivity
 import com.example.imperium_scorpio.postal.Ermes
 
 
 class Waiting_Room : Fragment(R.layout.fragment_waiting_room) {
 
-    val lock= Lock()
-    val ermes= Ermes(lock)
+    val ermes= Ermes()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+            ermes.readyToPlay("prova",this)
+    }
+
+    fun startGame(player: Int) {
         val intent= Intent(activity, MatchActivity::class.java)
-        if (ermes.readyToPlay("prova")){
-            startActivity(intent)
-        }else{
-            while (lock.read())
-                startActivity(intent)
-        }
+        intent.putExtra("player", player)
+        startActivityForResult(intent, 0)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        view?.findNavController()?.navigate(R.id.action_waiting_Room_to_menu)
     }
 }
+
+
 
 

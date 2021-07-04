@@ -122,6 +122,14 @@ class Planet(val position: Int, val danger: Int, val res1:Boolean, val res2:Bool
         }
     }
 
+    fun moveTo(c: Cards){
+        if (!controlled)
+        {
+            newCard(c)
+            controlled=true
+        }
+    }
+
     fun moveFrom():SmallCard{
         val c = copy()
         blank()

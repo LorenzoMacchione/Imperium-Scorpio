@@ -72,10 +72,10 @@ class Enemy {
         hand--
     }
 
-    fun enemyMining(i:Int){
-        eRes1.minRes(i)
-        eRes2.minRes(i)
-        eRes3.minRes(i)
-        eRes4.minRes(i)
+    fun enemyMining(a:Array<Int>){
+        eRes1.minRes(a[0])
+        eRes2.minRes(a[1])
+        eRes3.minRes(a[2])
+        eRes4.minRes(a[3])
     }
 }

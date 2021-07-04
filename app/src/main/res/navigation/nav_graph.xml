@@ -31,6 +31,10 @@
         android:id="@+id/waiting_Room"
         android:name="com.example.imperium_scorpio.home.Waiting_Room"
         android:label="fragment_waiting_room"
-        tools:layout="@layout/fragment_waiting_room" />
+        tools:layout="@layout/fragment_waiting_room" >
+        <action
+            android:id="@+id/action_waiting_Room_to_menu"
+            app:destination="@id/menu" />
+    </fragment>
 
 </navigation>

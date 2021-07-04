@@ -1,54 +1,54 @@
 package com.example.imperium_scorpio.postal
 
-import com.example.imperium_scorpio.Lock
-import com.example.imperium_scorpio.postal.message_model.QueueModel
-import com.google.firebase.database.ChildEventListener
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
+import com.example.imperium_scorpio.database.CardDAO
+import com.example.imperium_scorpio.home.Waiting_Room
+import com.example.imperium_scorpio.match.MatchViewModel
+import com.example.imperium_scorpio.postal.ermes_listener.MatchListener
+import com.example.imperium_scorpio.postal.ermes_listener.WaitingRoomListener
+import com.example.imperium_scorpio.postal.message_model.*
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
-class Ermes(val lock: Lock) :ChildEventListener{
+class Ermes(val cardDAO: CardDAO?=null){
 
     private val dbRoot = FirebaseDatabase.getInstance("https://imperium-scorpio-default-rtdb.europe-west1.firebasedatabase.app/")
+    private lateinit var dbPlayer: DatabaseReference
 
-    fun readyToPlay(user:String): Boolean {
+    fun readyToPlay(user:String, wait:Waiting_Room){
         val dbWaiting = dbRoot.reference.child("wait")
-        val someOne= dbWaiting.get()
-        if (someOne!=null) {
-            val msg=QueueModel(user, "ready")
-            dbWaiting.push().setValue(msg)
-            return true
-        }
-        val msg=QueueModel(user, "wait")
-        dbWaiting.push().setValue(msg)
-        dbWaiting.addChildEventListener(this)
-        return false
+
+        dbWaiting.addChildEventListener(WaitingRoomListener(wait))
+        dbWaiting.push().setValue(QueueModel(user,0))
     }
 
-
-    override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
-        val msg = snapshot.getValue(QueueModel::class.java)
-        val dbWaiting = dbRoot.reference.child("wait")
-        dbWaiting.removeValue()
-        dbWaiting.removeEventListener(this)
-        lock.unlock()
-
+    fun setGame(player:Int, mvm:MatchViewModel){
+        dbPlayer = dbRoot.reference.child("game/$player")
+        if(player==1) dbRoot.reference.child("game/2").addChildEventListener(MatchListener(mvm,cardDAO!!))
+        if(player==2) dbRoot.reference.child("game/1").addChildEventListener(MatchListener(mvm,cardDAO!!))
     }
 
-    override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
-        TODO("Not yet implemented")
+    fun playCard(card:Int, planet:Int){
+        dbPlayer.push().setValue("playCardModel")
+        dbPlayer.push().setValue(PlayCardModel(card, Math.abs(planet-8)))
     }
 
-    override fun onChildRemoved(snapshot: DataSnapshot) {
-        TODO("Not yet implemented")
+    fun attackMsg(striker:Int, defender:Int){
+        dbPlayer.push().setValue("attackModel")
+        dbPlayer.push().setValue(AttackModel(Math.abs(striker-8), Math.abs(defender-8)))
     }
 
-    override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {
-        TODO("Not yet implemented")
+    fun move(start:Int, end:Int){
+        dbPlayer.push().setValue("moveModel")
+        dbPlayer.push().setValue(MoveModel(Math.abs(start-8), Math.abs(end-8)))
     }
 
-    override fun onCancelled(error: DatabaseError) {
-        TODO("Not yet implemented")
+    fun mining(planet:Int){
+        dbPlayer.push().setValue("miningModel")
+        dbPlayer.push().setValue(MiningModel(Math.abs(planet-8)))
     }
 
+    fun drawMsg(res:Int){
+        dbPlayer.push().setValue("drawModel")
+        dbPlayer.push().setValue(DrawModel(res))
+    }
 }

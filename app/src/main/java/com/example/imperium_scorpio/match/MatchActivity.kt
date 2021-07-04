@@ -20,10 +20,12 @@ import com.example.imperium_scorpio.database.CardDB
 import com.example.imperium_scorpio.database.Cards
 import com.example.imperium_scorpio.databinding.ActivityMatchBinding
 import com.example.imperium_scorpio.match.viewmodels.SmallCard
+import com.example.imperium_scorpio.postal.Ermes
 
 
 class MatchActivity : AppCompatActivity() {
 
+    lateinit var ermes: Ermes
 
     var activeCard = -1
     val mvm: MatchViewModel by viewModels()
@@ -41,6 +43,13 @@ class MatchActivity : AppCompatActivity() {
         setContentView(R.layout.activity_match)
 
         mvm.setContext(this)
+
+        cardDAO = CardDB.getInstanceLoading(application).cardDAO()
+
+        deck = Deck("010102030405060708090a0b0c0d0e0f1011121314", cardDAO)
+
+        ermes= Ermes(cardDAO)
+        ermes.setGame(intent.getIntExtra("player",0),mvm)
 
         ringsG.add(R.id.rg1)
         ringsG.add(R.id.rg2)
@@ -109,9 +118,7 @@ class MatchActivity : AppCompatActivity() {
 
         //FINE BIDING
 
-        cardDAO = CardDB.getInstanceLoading(application).cardDAO()
 
-        deck = Deck("010102030405060708090a0b0c0d0e0f1011121314", cardDAO)
 
 
         setHand()
@@ -141,20 +148,6 @@ class MatchActivity : AppCompatActivity() {
                 r.minRes(10)
             }
         }
-
-        findViewById<ImageView>(R.id.planet2).setOnClickListener {
-            val c = Cards(1, "ciao",1,1,1,1,"Bravo",1,1,1,1,1)
-            mvm.enemy.playCard(c)
-            val s = SmallCard(this)
-            s.newCard(c)
-            mvm.planets[0].moveTo(s)
-        }
-
-        findViewById<ImageView>(R.id.planet3).setOnClickListener {
-            mvm.enemy.draw()
-        }
-
-
     }
 
     //Funzione per impostare l'explorer
@@ -297,6 +290,7 @@ class MatchActivity : AppCompatActivity() {
                     if (mvm.hand.size() != 5) {
                         mvm.pRes[buttons.indexOf(i)].useRes(1)
                         mvm.hand.addCard(deck.draw())
+                        ermes.drawMsg(buttons.indexOf(i))
                     } else {
                         Toast.makeText(this, "La mano è piena", Toast.LENGTH_LONG).show()
                     }
@@ -384,6 +378,7 @@ class MatchActivity : AppCompatActivity() {
                                 mvm.pRes[3].useRes(c.res4)
 
                                 mvm.planets[i].moveTo(mvm.hand.takeCard(card.toString().toInt()))
+                                ermes.playCard(c.id,i)
                             }else{
                                 Toast.makeText(this,"Non hai abbastanza risorse",Toast.LENGTH_LONG).show()
                             }
@@ -423,11 +418,14 @@ class MatchActivity : AppCompatActivity() {
                 for (i in 0..3){
                     mvm.pRes[i].minRes(m[i])
                 }
+                ermes.mining(c)
                 offAllRings()
             }
 
             findViewById<ImageView>(ringsG[c]).setOnClickListener {
                 mvm.planets[c].moveTo(mvm.planets[activeCard].moveFrom())
+                ermes.move(activeCard, c)
+
                 offAllRings()
                 if (c==0) {
                     if (mvm.planets[0].card.player!=0){
@@ -455,6 +453,8 @@ class MatchActivity : AppCompatActivity() {
             findViewById<ImageView>(ringsR[c]).setOnClickListener {
                 mvm.planets[c].takeDamage(mvm.planets[activeCard].attack.value!!)
                 mvm.planets[activeCard].takeDamage(mvm.planets[c].attack.value!!)
+                ermes.attackMsg(activeCard, c)
+
                 offAllRings()
             }
         }
@@ -472,9 +472,6 @@ class MatchActivity : AppCompatActivity() {
         }
     }
 
-    fun refreshImg(i:Int){
-
-    }
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
