@@ -64,11 +64,18 @@ class Enemy {
     }
 
     fun playCard(c: Cards){
-        eRes1.minRes(c.res1)
-        eRes2.minRes(c.res2)
-        eRes3.minRes(c.res3)
-        eRes4.minRes(c.res4)
+        eRes1.useRes(c.res1)
+        eRes2.useRes(c.res2)
+        eRes3.useRes(c.res3)
+        eRes4.useRes(c.res4)
 
         hand--
+    }
+
+    fun enemyMining(i:Int){
+        eRes1.minRes(i)
+        eRes2.minRes(i)
+        eRes3.minRes(i)
+        eRes4.minRes(i)
     }
 }

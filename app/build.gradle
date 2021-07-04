@@ -2,10 +2,15 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
 
+    //Firebase
+    id 'com.google.firebase.crashlytics'
+
 }
 
 apply plugin: 'kotlin-kapt'
 apply plugin: "androidx.navigation.safeargs.kotlin"
+
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 30
@@ -72,6 +77,21 @@ dependencies {
 
     //implementazione activity
     implementation "androidx.activity:activity-ktx:$activity_version"
+
+    //Google
+    implementation 'com.google.android.gms:play-services-auth:19.0.0'
+
+    //Firebase
+    implementation platform('com.google.firebase:firebase-bom:28.0.1')
+    implementation 'com.google.firebase:firebase-database-ktx'
+    implementation 'com.google.firebase:firebase-storage-ktx'
+    implementation 'com.google.firebase:firebase-auth-ktx'
+
+    //Firebase ui
+    implementation 'com.firebaseui:firebase-ui-database:7.1.1'
+
+    //Json Moshi
+    implementation ("com.squareup.moshi:moshi:1.12.0")
 
 
 

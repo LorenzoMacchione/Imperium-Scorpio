@@ -7,8 +7,11 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.navigation.findNavController
+import com.example.imperium_scorpio.Lock
 import com.example.imperium_scorpio.R
 import com.example.imperium_scorpio.match.MatchActivity
+import com.example.imperium_scorpio.postal.Ermes
 
 class Menu : Fragment(R.layout.menu) {
 
@@ -35,13 +38,11 @@ class Menu : Fragment(R.layout.menu) {
             getView()?.findViewById<ConstraintLayout>(R.id.menu)?.visibility = View.VISIBLE
         }
 
-        requireView().findViewById<ImageView>(R.id.new_game).setOnClickListener{
-            val intent= Intent(activity, MatchActivity::class.java)
-            startActivity(intent)
+        requireView().findViewById<ImageView>(R.id.new_game).setOnClickListener {
+        view.findNavController().navigate(R.id.action_menu_to_waiting_Room)
+
         }
-
     }
-
     override fun onStop() {
         super.onStop()
         mediaPlayer.release()

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "749605075649",
+    "project_id": "imperium-scorpio",
+    "storage_bucket": "imperium-scorpio.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:749605075649:android:5a021bdde06e3a19d1f240",
+        "android_client_info": {
+          "package_name": "com.example.imperium_scorpio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "749605075649-49ifvh4ijgil0jl6mqq1lr2qkp163ond.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.imperium_scorpio",
+            "certificate_hash": "8fdd38965ac83c29d6f6543763377e8759796777"
+          }
+        },
+        {
+          "client_id": "749605075649-g01c6e98i47ib28qb3pr4pacu4qoneqv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFka_Gs6LBbNc91mE6FTYn1TWbf8Ya_IY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "749605075649-g01c6e98i47ib28qb3pr4pacu4qoneqv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

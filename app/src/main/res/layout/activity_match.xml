@@ -389,7 +389,7 @@
 
         <TextView
             android:id="@+id/hc3Hp"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#144C10"
             android:text="@{hc3.hp.toString()}"
@@ -405,7 +405,7 @@
 
         <TextView
             android:id="@+id/hc3M"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#FFFFFF"
             android:backgroundTint="#A6842C"
@@ -421,7 +421,7 @@
 
         <TextView
             android:id="@+id/hc3At"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#FD0000"
             android:text="@{hc3.attack.toString()}"
@@ -533,7 +533,7 @@
 
         <TextView
             android:id="@+id/hc4Hp"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#144C10"
             android:text="@{hc4.hp.toString()}"
@@ -549,7 +549,7 @@
 
         <TextView
             android:id="@+id/hc4M"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#FFFFFF"
             android:backgroundTint="#A6842C"
@@ -565,7 +565,7 @@
 
         <TextView
             android:id="@+id/hc4At"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#FD0000"
             android:text="@{hc4.attack.toString()}"
@@ -677,7 +677,7 @@
 
         <TextView
             android:id="@+id/hc5Hp"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#144C10"
             android:text="@{hc5.hp.toString()}"
@@ -693,7 +693,7 @@
 
         <TextView
             android:id="@+id/hc5M"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#FFFFFF"
             android:backgroundTint="#A6842C"
@@ -709,7 +709,7 @@
 
         <TextView
             android:id="@+id/hc5At"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#FD0000"
             android:text="@{hc5.attack.toString()}"
@@ -822,7 +822,7 @@
 
         <TextView
             android:id="@+id/Hc1At"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#FD0000"
             android:text="@{hc1.attack.toString()}"
@@ -838,7 +838,7 @@
 
         <TextView
             android:id="@+id/Hc1M"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#FFFFFF"
             android:backgroundTint="#A6842C"
@@ -854,7 +854,7 @@
 
         <TextView
             android:id="@+id/Hc1Hp"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#144C10"
             android:text="@{hc1.hp.toString()}"
@@ -862,7 +862,7 @@
             android:textColor="@color/black"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/Hc1Img"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/Hc1Img"
             app:layout_constraintTop_toTopOf="parent"
@@ -967,7 +967,7 @@
 
         <TextView
             android:id="@+id/hc2Hp"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#144C10"
             android:text="@{hc2.hp.toString()}"
@@ -983,7 +983,7 @@
 
         <TextView
             android:id="@+id/hc2M"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#FFFFFF"
             android:backgroundTint="#A6842C"
@@ -999,7 +999,7 @@
 
         <TextView
             android:id="@+id/hc2At"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#FD0000"
             android:text="@{hc2.attack.toString()}"
@@ -1204,8 +1204,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ConP1"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
+        android:layout_width="56dp"
+        android:layout_height="70dp"
         android:visibility="@{p1.visibility}"
         app:layout_constraintBottom_toBottomOf="@+id/planet1"
         app:layout_constraintEnd_toEndOf="@+id/planet1"
@@ -1237,7 +1237,7 @@
 
         <TextView
             android:id="@+id/CP1At"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#FD0000"
             android:text="@{p1.attack.toString()}"
@@ -1253,7 +1253,7 @@
 
         <TextView
             android:id="@+id/CP1M"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#FFFFFF"
             android:backgroundTint="#A6842C"
@@ -1269,7 +1269,7 @@
 
         <TextView
             android:id="@+id/CP1Hp"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#144C10"
             android:text="@{p1.hp.toString()}"
@@ -1350,8 +1350,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ConP2"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
+        android:layout_width="56dp"
+        android:layout_height="70dp"
         android:visibility="@{p2.visibility}"
         app:layout_constraintBottom_toBottomOf="@+id/planet2"
         app:layout_constraintEnd_toEndOf="@+id/planet2"
@@ -1383,7 +1383,7 @@
 
         <TextView
             android:id="@+id/CP2At"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#FD0000"
             android:text="@{p2.attack.toString()}"
@@ -1399,7 +1399,7 @@
 
         <TextView
             android:id="@+id/CP2M"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#FFFFFF"
             android:backgroundTint="#A6842C"
@@ -1415,7 +1415,7 @@
 
         <TextView
             android:id="@+id/CP2Hp"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#144C10"
             android:text="@{p2.hp.toString()}"
@@ -1497,8 +1497,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ConP3"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
+        android:layout_width="56dp"
+        android:layout_height="70dp"
         android:visibility="@{p3.visibility}"
         app:layout_constraintBottom_toBottomOf="@+id/planet3"
         app:layout_constraintEnd_toEndOf="@+id/planet3"
@@ -1530,7 +1530,7 @@
 
         <TextView
             android:id="@+id/CP3At"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#FD0000"
             android:text="@{p3.attack.toString()}"
@@ -1546,7 +1546,7 @@
 
         <TextView
             android:id="@+id/CP3M"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#FFFFFF"
             android:backgroundTint="#A6842C"
@@ -1562,7 +1562,7 @@
 
         <TextView
             android:id="@+id/CP3Hp"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#144C10"
             android:text="@{p3.hp.toString()}"
@@ -1645,8 +1645,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ConP4"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
+        android:layout_width="56dp"
+        android:layout_height="70dp"
         android:visibility="@{p4.visibility}"
         app:layout_constraintBottom_toBottomOf="@+id/planet4"
         app:layout_constraintEnd_toEndOf="@+id/planet4"
@@ -1678,7 +1678,7 @@
 
         <TextView
             android:id="@+id/CP4At"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#FD0000"
             android:text="@{p4.attack.toString()}"
@@ -1694,7 +1694,7 @@
 
         <TextView
             android:id="@+id/CP4M"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#FFFFFF"
             android:backgroundTint="#A6842C"
@@ -1710,7 +1710,7 @@
 
         <TextView
             android:id="@+id/CP4Hp"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#144C10"
             android:text="@{p4.hp.toString()}"
@@ -1792,8 +1792,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ConP5"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
+        android:layout_width="56dp"
+        android:layout_height="70dp"
         android:visibility="@{p5.visibility}"
         app:layout_constraintBottom_toBottomOf="@+id/planet5"
         app:layout_constraintEnd_toEndOf="@+id/planet5"
@@ -1825,7 +1825,7 @@
 
         <TextView
             android:id="@+id/CP5At"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#FD0000"
             android:text="@{p5.attack.toString()}"
@@ -1841,7 +1841,7 @@
 
         <TextView
             android:id="@+id/CP5M"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#FFFFFF"
             android:backgroundTint="#A6842C"
@@ -1857,7 +1857,7 @@
 
         <TextView
             android:id="@+id/CP5Hp"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#144C10"
             android:text="@{p5.hp.toString()}"
@@ -1940,8 +1940,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ConP6"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
+        android:layout_width="56dp"
+        android:layout_height="70dp"
         android:visibility="@{p6.visibility}"
         app:layout_constraintBottom_toBottomOf="@+id/planet6"
         app:layout_constraintEnd_toEndOf="@+id/planet6"
@@ -1973,7 +1973,7 @@
 
         <TextView
             android:id="@+id/CP6At"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#FD0000"
             android:text="@{p6.attack.toString()}"
@@ -1989,7 +1989,7 @@
 
         <TextView
             android:id="@+id/CP6M"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#FFFFFF"
             android:backgroundTint="#A6842C"
@@ -2005,7 +2005,7 @@
 
         <TextView
             android:id="@+id/CP6Hp"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#144C10"
             android:text="@{p6.hp.toString()}"
@@ -2088,8 +2088,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ConP7"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
+        android:layout_width="56dp"
+        android:layout_height="70dp"
         android:visibility="@{p7.visibility}"
         app:layout_constraintBottom_toBottomOf="@+id/planet7"
         app:layout_constraintEnd_toEndOf="@+id/planet7"
@@ -2121,7 +2121,7 @@
 
         <TextView
             android:id="@+id/CP7At"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#FD0000"
             android:text="@{p7.attack.toString()}"
@@ -2137,7 +2137,7 @@
 
         <TextView
             android:id="@+id/CP7M"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#FFFFFF"
             android:backgroundTint="#A6842C"
@@ -2153,7 +2153,7 @@
 
         <TextView
             android:id="@+id/CP7Hp"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#144C10"
             android:text="@{p7.hp.toString()}"
@@ -2234,8 +2234,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ConP8"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
+        android:layout_width="56dp"
+        android:layout_height="70dp"
         android:visibility="@{p8.visibility}"
         app:layout_constraintBottom_toBottomOf="@+id/planet8"
         app:layout_constraintEnd_toEndOf="@+id/planet8"
@@ -2267,7 +2267,7 @@
 
         <TextView
             android:id="@+id/CP8At"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#FD0000"
             android:text="@{p8.attack.toString()}"
@@ -2283,7 +2283,7 @@
 
         <TextView
             android:id="@+id/CP8M"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#FFFFFF"
             android:backgroundTint="#A6842C"
@@ -2299,7 +2299,7 @@
 
         <TextView
             android:id="@+id/CP8Hp"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#144C10"
             android:text="@{p8.hp.toString()}"
@@ -2381,8 +2381,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ConP9"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
+        android:layout_width="56dp"
+        android:layout_height="70dp"
         android:visibility="@{p9.visibility}"
         app:layout_constraintBottom_toBottomOf="@+id/planet9"
         app:layout_constraintEnd_toEndOf="@+id/planet9"
@@ -2414,7 +2414,7 @@
 
         <TextView
             android:id="@+id/CP9At"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#FD0000"
             android:text="@{p9.attack.toString()}"
@@ -2430,7 +2430,7 @@
 
         <TextView
             android:id="@+id/CP9M"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#FFFFFF"
             android:backgroundTint="#A6842C"
@@ -2446,7 +2446,7 @@
 
         <TextView
             android:id="@+id/CP9Hp"
-            android:layout_width="12dp"
+            android:layout_width="14dp"
             android:layout_height="16dp"
             android:background="#144C10"
             android:text="@{p9.hp.toString()}"
@@ -2974,24 +2974,26 @@
 
         <TextView
             android:id="@+id/attack"
-            android:layout_width="15dp"
-            android:layout_height="16dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
             android:layout_marginEnd="76dp"
             android:text="@{explorer.attack.toString}"
             android:textAlignment="center"
             android:textColor="@color/black"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/mining"
             app:layout_constraintEnd_toStartOf="@+id/mining"
-            app:layout_constraintHorizontal_bias="0.333"
+            app:layout_constraintHorizontal_bias="0.28"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/mining"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/mining"
-            android:layout_width="14dp"
-            android:layout_height="16dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
             android:text="@{explorer.mining.toString}"
+            android:textSize="14sp"
             android:textAlignment="center"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="@+id/CardBackGround"
@@ -3003,10 +3005,11 @@
 
         <TextView
             android:id="@+id/Hp"
-            android:layout_width="15dp"
-            android:layout_height="17dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
             android:layout_marginEnd="2dp"
             android:text="@{explorer.hp.toString}"
+            android:textSize="14sp"
             android:textAlignment="center"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="@+id/mining"
