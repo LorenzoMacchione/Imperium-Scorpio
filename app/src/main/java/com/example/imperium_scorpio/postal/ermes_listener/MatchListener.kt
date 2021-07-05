@@ -34,7 +34,7 @@ class MatchListener(val mvm: MatchViewModel, val cardDAO: CardDAO) : ChildEventL
                     val msg = snapshot.getValue(MiningModel::class.java)
                     mvm.enemy.enemyMining(mvm.planets[msg?.planet!!].takeRes())
                 }
-                "playCard"->{
+                "playCardModel"->{
                     val msg = snapshot.getValue(PlayCardModel::class.java)
                     val c = cardDAO.getCardById(msg?.card!!)
                     c.player = 1

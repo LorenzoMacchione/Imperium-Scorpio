@@ -9,7 +9,7 @@ import com.google.firebase.database.FirebaseDatabase
 
 class WaitingRoomListener(val wait: Waiting_Room): ChildEventListener {
     private val dbRoot = FirebaseDatabase.getInstance("https://imperium-scorpio-default-rtdb.europe-west1.firebasedatabase.app/")
-    private var player = 2
+
 
 
     override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
@@ -17,14 +17,13 @@ class WaitingRoomListener(val wait: Waiting_Room): ChildEventListener {
         val dbWaiting = dbRoot.reference.child("wait")
 
 
-        if(!msg!!.user.equals("prova")) {
+        if(!msg!!.user.equals("test")) {
 
             dbWaiting.removeValue()
             dbWaiting.removeEventListener(this)
-            wait.startGame(player)
-        }else{
-            player=1
+            wait.startGame(msg.user)
         }
+
     }
 
     override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {

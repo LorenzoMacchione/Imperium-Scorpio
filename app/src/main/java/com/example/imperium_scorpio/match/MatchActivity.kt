@@ -1,6 +1,7 @@
 package com.example.imperium_scorpio.match
 import android.content.ClipData
 import android.content.ClipDescription
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -37,6 +38,8 @@ class MatchActivity : AppCompatActivity() {
     val ringsG = mutableListOf<Int>()
     val ringsR = mutableListOf<Int>()
 
+    val replyIntent = Intent()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +52,7 @@ class MatchActivity : AppCompatActivity() {
         deck = Deck("010102030405060708090a0b0c0d0e0f1011121314", cardDAO)
 
         ermes= Ermes(cardDAO)
-        ermes.setGame(intent.getIntExtra("player",0),mvm)
+        ermes.setGame(intent.getStringExtra("player")!!,mvm)
 
         ringsG.add(R.id.rg1)
         ringsG.add(R.id.rg2)
@@ -140,8 +143,13 @@ class MatchActivity : AppCompatActivity() {
         mvm.enemy.draw()
         mvm.enemy.draw()
 
-        findViewById<TextView>(R.id.win).setOnClickListener{finish()}
-        findViewById<TextView>(R.id.next).setOnClickListener{finish()}
+        findViewById<TextView>(R.id.win).setOnClickListener{
+            finish()
+        }
+
+        findViewById<TextView>(R.id.next).setOnClickListener{
+            finish()
+        }
 
         findViewById<ImageView>(R.id.planet1).setOnClickListener {
             for (r in mvm.pRes){
@@ -439,13 +447,18 @@ class MatchActivity : AppCompatActivity() {
                         findViewById<TextView>(R.id.next).textSize = 20F
                         findViewById<TextView>(R.id.next).setTypeface(ResourcesCompat.getFont(this,R.font.laceration))
                         findViewById<TextView>(R.id.next).visibility = View.VISIBLE
+                        replyIntent.putExtra("result","lose")
+                        setResult(RESULT_OK,intent)
+                        ermes.clearGame()
                     }
                 }
                 if (c==8) {
                     if (mvm.planets[c].card.player==0) {
                         findViewById<TextView>(R.id.win).visibility = View.VISIBLE
-
                         findViewById<TextView>(R.id.next).visibility = View.VISIBLE
+                        replyIntent.putExtra("result","win")
+                        setResult(RESULT_OK,intent)
+                        ermes.clearGame()
                     }
                 }
             }

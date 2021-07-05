@@ -21,10 +21,10 @@ class Ermes(val cardDAO: CardDAO?=null){
         dbWaiting.push().setValue(QueueModel(user,0))
     }
 
-    fun setGame(player:Int, mvm:MatchViewModel){
-        dbPlayer = dbRoot.reference.child("game/$player")
-        if(player==1) dbRoot.reference.child("game/2").addChildEventListener(MatchListener(mvm,cardDAO!!))
-        if(player==2) dbRoot.reference.child("game/1").addChildEventListener(MatchListener(mvm,cardDAO!!))
+    fun setGame(player:String, mvm:MatchViewModel){
+        dbPlayer = dbRoot.reference.child("game/test")
+        dbRoot.reference.child("game/$player").addChildEventListener(MatchListener(mvm,cardDAO!!))
+
     }
 
     fun playCard(card:Int, planet:Int){
@@ -50,5 +50,9 @@ class Ermes(val cardDAO: CardDAO?=null){
     fun drawMsg(res:Int){
         dbPlayer.push().setValue("drawModel")
         dbPlayer.push().setValue(DrawModel(res))
+    }
+
+    fun clearGame() {
+        dbPlayer.removeValue()
     }
 }

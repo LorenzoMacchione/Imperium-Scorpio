@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.navigation.findNavController
 import com.example.imperium_scorpio.R
-import com.example.imperium_scorpio.database.CardDB
 import com.example.imperium_scorpio.match.MatchActivity
 import com.example.imperium_scorpio.postal.Ermes
 
@@ -18,10 +17,10 @@ class Waiting_Room : Fragment(R.layout.fragment_waiting_room) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-            ermes.readyToPlay("prova",this)
+            ermes.readyToPlay("test",this)
     }
 
-    fun startGame(player: Int) {
+    fun startGame(player: String?) {
         val intent= Intent(activity, MatchActivity::class.java)
         intent.putExtra("player", player)
         startActivityForResult(intent, 0)

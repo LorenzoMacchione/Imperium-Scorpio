@@ -63,8 +63,8 @@ class MatchViewModel() : ViewModel() {
         p4 = Planet(3,1,false,false,true,true,context)
         p5 = Planet(4,3,true,true,true,true,context)
         p6 = Planet(5,1,false,false,true,true,context)
-        p7 = Planet(6,1,false,true,false,true,context)
-        p8 = Planet(7,1,true,true,false,false,context)
+        p7 = Planet(6,1,true,true,false,false,context)
+        p8 = Planet(7,1,false,true,false,true,context)
         p9 = Planet(8,1,true,false,true,false,context)
 
         planets.add(p1)

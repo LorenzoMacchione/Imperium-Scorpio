@@ -9,7 +9,7 @@ import com.example.imperium_scorpio.R
 import com.example.imperium_scorpio.database.CardDB
 import com.example.imperium_scorpio.database.Cards
 
-class Installer : Fragment(R.layout.installer) {
+class   Installer : Fragment(R.layout.installer) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
