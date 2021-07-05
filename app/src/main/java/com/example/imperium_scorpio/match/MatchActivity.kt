@@ -2,7 +2,6 @@ package com.example.imperium_scorpio.match
 import android.content.ClipData
 import android.content.ClipDescription
 import android.content.Intent
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.DragEvent
@@ -13,14 +12,12 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.DataBindingUtil
+import com.example.imperium_scorpio.Lock
 import com.example.imperium_scorpio.R
 import com.example.imperium_scorpio.database.CardDAO
 import com.example.imperium_scorpio.database.CardDB
-import com.example.imperium_scorpio.database.Cards
 import com.example.imperium_scorpio.databinding.ActivityMatchBinding
-import com.example.imperium_scorpio.match.viewmodels.SmallCard
 import com.example.imperium_scorpio.postal.Ermes
 
 
@@ -144,10 +141,26 @@ class MatchActivity : AppCompatActivity() {
         mvm.enemy.draw()
 
         findViewById<TextView>(R.id.win).setOnClickListener{
+            replyIntent.putExtra("result","win")
+            setResult(RESULT_OK,intent)
             finish()
         }
 
         findViewById<TextView>(R.id.next).setOnClickListener{
+            replyIntent.putExtra("result","win")
+            setResult(RESULT_OK,intent)
+            finish()
+        }
+
+        findViewById<TextView>(R.id.lose).setOnClickListener{
+            replyIntent.putExtra("result","lose")
+            setResult(RESULT_OK,intent)
+            finish()
+        }
+
+        findViewById<TextView>(R.id.nextlose).setOnClickListener{
+            replyIntent.putExtra("result","lose")
+            setResult(RESULT_OK,intent)
             finish()
         }
 
@@ -188,7 +201,7 @@ class MatchActivity : AppCompatActivity() {
             val data = ClipData("0", mime, item)
 
             val dragShadow = View.DragShadowBuilder(it)
-            it.startDragAndDrop(data, dragShadow, it, 0)
+            if (mvm.lock.read())it.startDragAndDrop(data, dragShadow, it, 0)
 
             true
         }
@@ -205,7 +218,7 @@ class MatchActivity : AppCompatActivity() {
             val data = ClipData("1", mime, item)
 
             val dragShadow = View.DragShadowBuilder(it)
-            it.startDragAndDrop(data, dragShadow, it, 0)
+            if (mvm.lock.read())it.startDragAndDrop(data, dragShadow, it, 0)
 
             true
         }
@@ -222,7 +235,7 @@ class MatchActivity : AppCompatActivity() {
             val data = ClipData("2", mime, item)
 
             val dragShadow = View.DragShadowBuilder(it)
-            it.startDragAndDrop(data, dragShadow, it, 0)
+            if (mvm.lock.read())it.startDragAndDrop(data, dragShadow, it, 0)
 
             true
         }
@@ -239,7 +252,7 @@ class MatchActivity : AppCompatActivity() {
             val data = ClipData("3", mime, item)
 
             val dragShadow = View.DragShadowBuilder(it)
-            it.startDragAndDrop(data, dragShadow, it, 0)
+            if (mvm.lock.read())it.startDragAndDrop(data, dragShadow, it, 0)
 
             true
         }
@@ -256,7 +269,7 @@ class MatchActivity : AppCompatActivity() {
             val data = ClipData("4", mime, item)
 
             val dragShadow = View.DragShadowBuilder(it)
-            it.startDragAndDrop(data, dragShadow, it, 0)
+            if (mvm.lock.read())it.startDragAndDrop(data, dragShadow, it, 0)
 
             true
         }
@@ -272,22 +285,22 @@ class MatchActivity : AppCompatActivity() {
 
             findViewById<TextView>(R.id.R1).setOnClickListener {
                 offAllResButton()
-                findViewById<Button>(R.id.drawRes1).visibility = View.VISIBLE
+                if (mvm.lock.read())findViewById<Button>(R.id.drawRes1).visibility = View.VISIBLE
             }
 
             findViewById<TextView>(R.id.R2).setOnClickListener {
                 offAllResButton()
-                findViewById<Button>(R.id.drawRes2).visibility = View.VISIBLE
+                if (mvm.lock.read())findViewById<Button>(R.id.drawRes2).visibility = View.VISIBLE
             }
 
             findViewById<TextView>(R.id.R3).setOnClickListener {
                 offAllResButton()
-                findViewById<Button>(R.id.drawRes3).visibility = View.VISIBLE
+                if (mvm.lock.read())findViewById<Button>(R.id.drawRes3).visibility = View.VISIBLE
             }
 
             findViewById<TextView>(R.id.R4).setOnClickListener {
                 offAllResButton()
-                findViewById<Button>(R.id.drawRes4).visibility = View.VISIBLE
+                if (mvm.lock.read())findViewById<Button>(R.id.drawRes4).visibility = View.VISIBLE
             }
 
 
@@ -387,6 +400,7 @@ class MatchActivity : AppCompatActivity() {
 
                                 mvm.planets[i].moveTo(mvm.hand.takeCard(card.toString().toInt()))
                                 ermes.playCard(c.id,i)
+                                mvm.lock.lock()
                             }else{
                                 Toast.makeText(this,"Non hai abbastanza risorse",Toast.LENGTH_LONG).show()
                             }
@@ -403,15 +417,18 @@ class MatchActivity : AppCompatActivity() {
             }
 
             cOnPlanet[i].setOnClickListener {
-                activeCard = i
-                offAllResButton()
-                findViewById<ImageView>(ringsY[i]).visibility = View.VISIBLE
-                val range1 = mvm.planets[i].getRange(1)
-                for (c in range1) {
-                    if (mvm.planets[c].controlled) {
-                        if (mvm.planets[c].read().player == 1) findViewById<ImageView>(ringsR[c]).visibility = View.VISIBLE
-                    } else {
-                        findViewById<ImageView>(ringsG[c]).visibility = View.VISIBLE
+                if (mvm.planets[i].card.player != 1 && mvm.lock.read()) {
+                    activeCard = i
+                    offAllResButton()
+                    findViewById<ImageView>(ringsY[i]).visibility = View.VISIBLE
+                    val range1 = mvm.planets[i].getRange(1)
+                    for (c in range1) {
+                        if (mvm.planets[c].controlled) {
+                            if (mvm.planets[c].read().player == 1) findViewById<ImageView>(ringsR[c]).visibility =
+                                View.VISIBLE
+                        } else {
+                            findViewById<ImageView>(ringsG[c]).visibility = View.VISIBLE
+                        }
                     }
                 }
             }
@@ -428,36 +445,20 @@ class MatchActivity : AppCompatActivity() {
                 }
                 ermes.mining(c)
                 offAllRings()
+                mvm.lock.lock()
             }
 
             findViewById<ImageView>(ringsG[c]).setOnClickListener {
                 mvm.planets[c].moveTo(mvm.planets[activeCard].moveFrom())
                 ermes.move(activeCard, c)
+                mvm.lock.lock()
 
                 offAllRings()
-                if (c==0) {
-                    if (mvm.planets[0].card.player!=0){
-                        findViewById<TextView>(R.id.win).text = "LOSE"
-                        findViewById<TextView>(R.id.win).setTextColor(Color.RED)
-                        findViewById<TextView>(R.id.win).textSize = 70F
-                        findViewById<TextView>(R.id.win).setTypeface(ResourcesCompat.getFont(this,R.font.laceration))
-                        findViewById<TextView>(R.id.win).visibility = View.VISIBLE
 
-                        findViewById<TextView>(R.id.next).setTextColor(Color.RED)
-                        findViewById<TextView>(R.id.next).textSize = 20F
-                        findViewById<TextView>(R.id.next).setTypeface(ResourcesCompat.getFont(this,R.font.laceration))
-                        findViewById<TextView>(R.id.next).visibility = View.VISIBLE
-                        replyIntent.putExtra("result","lose")
-                        setResult(RESULT_OK,intent)
-                        ermes.clearGame()
-                    }
-                }
                 if (c==8) {
                     if (mvm.planets[c].card.player==0) {
-                        findViewById<TextView>(R.id.win).visibility = View.VISIBLE
-                        findViewById<TextView>(R.id.next).visibility = View.VISIBLE
-                        replyIntent.putExtra("result","win")
-                        setResult(RESULT_OK,intent)
+                        mvm.enemy.win=1
+
                         ermes.clearGame()
                     }
                 }
@@ -467,6 +468,7 @@ class MatchActivity : AppCompatActivity() {
                 mvm.planets[c].takeDamage(mvm.planets[activeCard].attack.value!!)
                 mvm.planets[activeCard].takeDamage(mvm.planets[c].attack.value!!)
                 ermes.attackMsg(activeCard, c)
+                mvm.lock.lock()
 
                 offAllRings()
             }

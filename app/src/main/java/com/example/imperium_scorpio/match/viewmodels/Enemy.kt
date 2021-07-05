@@ -7,6 +7,21 @@ import com.example.imperium_scorpio.database.Cards
 import kotlin.properties.Delegates
 
 class Enemy {
+    var win: Int by Delegates.observable(0) { property, oldValue, newValue ->
+      when(newValue){
+          1 -> _winVisibility.value = View.VISIBLE
+          2 -> _loseVisibility.value = View.VISIBLE
+      }
+    }
+
+    private val _winVisibility = MutableLiveData<Int>(View.INVISIBLE)
+    val winVisibility: LiveData<Int>
+        get() = _winVisibility
+
+    private val _loseVisibility = MutableLiveData<Int>(View.INVISIBLE)
+    val loseVisibility: LiveData<Int>
+        get() = _loseVisibility
+
 
     var hand: Int by Delegates.observable(0) { property, oldValue, newValue ->
 
@@ -77,5 +92,9 @@ class Enemy {
         eRes2.minRes(a[1])
         eRes3.minRes(a[2])
         eRes4.minRes(a[3])
+    }
+
+    fun win() {
+        TODO("Not yet implemented")
     }
 }

@@ -2,13 +2,11 @@ package com.example.imperium_scorpio.postal.message_model
 
 class QueueModel {
     var user:String?=null
-    var gameId:Int?=null
 
 
     constructor()
 
-    constructor(user:String?, gameId:Int?){
+    constructor(user:String?){
         this.user=user
-        this.gameId=gameId
     }
 }

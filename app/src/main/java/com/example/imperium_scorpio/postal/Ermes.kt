@@ -14,16 +14,19 @@ class Ermes(val cardDAO: CardDAO?=null){
     private val dbRoot = FirebaseDatabase.getInstance("https://imperium-scorpio-default-rtdb.europe-west1.firebasedatabase.app/")
     private lateinit var dbPlayer: DatabaseReference
 
+    var initiative = 0
+
     fun readyToPlay(user:String, wait:Waiting_Room){
         val dbWaiting = dbRoot.reference.child("wait")
 
         dbWaiting.addChildEventListener(WaitingRoomListener(wait))
-        dbWaiting.push().setValue(QueueModel(user,0))
+        dbWaiting.push().setValue(QueueModel(user))
     }
 
     fun setGame(player:String, mvm:MatchViewModel){
-        dbPlayer = dbRoot.reference.child("game/test")
-        dbRoot.reference.child("game/$player").addChildEventListener(MatchListener(mvm,cardDAO!!))
+        dbPlayer = dbRoot.reference.child("game/prova")
+        dbRoot.reference.child("game/$player").addChildEventListener(MatchListener(mvm,cardDAO!!,this))
+        randomModel()
 
     }
 
@@ -54,5 +57,11 @@ class Ermes(val cardDAO: CardDAO?=null){
 
     fun clearGame() {
         dbPlayer.removeValue()
+    }
+
+    fun randomModel(){
+        dbPlayer.push().setValue("randomModel")
+        initiative = (0..100).random()
+        dbPlayer.push().setValue((RandomModel(initiative)))
     }
 }

@@ -2,6 +2,7 @@ package com.example.imperium_scorpio.match
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
+import com.example.imperium_scorpio.Lock
 import com.example.imperium_scorpio.database.CardDAO
 import com.example.imperium_scorpio.match.viewmodels.*
 
@@ -10,6 +11,8 @@ class MatchViewModel() : ViewModel() {
     lateinit var hand: Hand
 
     val enemy = Enemy()
+
+    val lock = Lock()
 
 
 

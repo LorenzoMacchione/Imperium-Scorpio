@@ -1,17 +1,17 @@
 package com.example.imperium_scorpio
 
 class Lock {
-    private var locked=false
+    private var unlocked=true
 
     fun lock (){
-        locked=true
+        unlocked=false
     }
 
     fun unlock (){
-        locked=false
+        unlocked=true
     }
 
     fun read (): Boolean {
-        return locked
+        return unlocked
     }
 }

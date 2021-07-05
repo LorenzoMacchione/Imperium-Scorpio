@@ -17,7 +17,7 @@ class WaitingRoomListener(val wait: Waiting_Room): ChildEventListener {
         val dbWaiting = dbRoot.reference.child("wait")
 
 
-        if(!msg!!.user.equals("test")) {
+        if(!msg!!.user.equals("prova")) {
 
             dbWaiting.removeValue()
             dbWaiting.removeEventListener(this)

@@ -17,7 +17,7 @@ class Waiting_Room : Fragment(R.layout.fragment_waiting_room) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-            ermes.readyToPlay("test",this)
+            ermes.readyToPlay("prova",this)
     }
 
     fun startGame(player: String?) {
