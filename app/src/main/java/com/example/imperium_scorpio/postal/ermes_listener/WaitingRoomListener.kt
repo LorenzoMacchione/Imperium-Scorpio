@@ -7,7 +7,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 
-class WaitingRoomListener(val wait: Waiting_Room): ChildEventListener {
+class WaitingRoomListener(val wait: Waiting_Room, val userName: String): ChildEventListener {
     private val dbRoot = FirebaseDatabase.getInstance("https://imperium-scorpio-default-rtdb.europe-west1.firebasedatabase.app/")
 
 
@@ -17,7 +17,7 @@ class WaitingRoomListener(val wait: Waiting_Room): ChildEventListener {
         val dbWaiting = dbRoot.reference.child("wait")
 
 
-        if(!msg!!.user.equals("prova")) {
+        if(!msg!!.user.equals(userName)) {
 
             dbWaiting.removeValue()
             dbWaiting.removeEventListener(this)

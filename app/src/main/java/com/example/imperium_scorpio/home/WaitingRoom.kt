@@ -14,15 +14,17 @@ class Waiting_Room : Fragment(R.layout.fragment_waiting_room) {
 
     val ermes= Ermes()
 
+   lateinit var user:String
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-            ermes.readyToPlay("prova",this)
+        user = arguments?.getString("user")!!
+            ermes.readyToPlay(user,this)
     }
 
-    fun startGame(player: String?) {
+    fun startGame(enemy: String?) {
         val intent= Intent(activity, MatchActivity::class.java)
-        intent.putExtra("player", player)
+        intent.putExtra("player", user)
+        intent.putExtra("enemy", enemy)
         startActivityForResult(intent, 0)
     }
 

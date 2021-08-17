@@ -46,10 +46,18 @@ class MatchActivity : AppCompatActivity() {
 
         cardDAO = CardDB.getInstanceLoading(application).cardDAO()
 
-        deck = Deck("010102030405060708090a0b0c0d0e0f1011121314", cardDAO)
+        val deck_number = (1..2).random()
+        if(deck_number==1){
+            deck = Deck("0101020203030404050506060707080809090a0a", cardDAO)
+        }
+        else{
+            deck = Deck("0b0b0c0c0d0d0e0e0f0f10101111121213131414", cardDAO)
+        }
 
         ermes= Ermes(cardDAO)
-        ermes.setGame(intent.getStringExtra("player")!!,mvm)
+        ermes.setGame(intent.getStringExtra("player")!!
+            ,intent.getStringExtra("enemy")!!,
+            mvm)
 
         ringsG.add(R.id.rg1)
         ringsG.add(R.id.rg2)
@@ -285,22 +293,34 @@ class MatchActivity : AppCompatActivity() {
 
             findViewById<TextView>(R.id.R1).setOnClickListener {
                 offAllResButton()
-                if (mvm.lock.read())findViewById<Button>(R.id.drawRes1).visibility = View.VISIBLE
+                if (mvm.lock.read()){
+                    findViewById<Button>(R.id.drawRes1).visibility = View.VISIBLE
+                    mvm.lock.lock()
+                }
             }
 
             findViewById<TextView>(R.id.R2).setOnClickListener {
                 offAllResButton()
-                if (mvm.lock.read())findViewById<Button>(R.id.drawRes2).visibility = View.VISIBLE
+                if (mvm.lock.read()){
+                    findViewById<Button>(R.id.drawRes2).visibility = View.VISIBLE
+                    mvm.lock.lock()
+                }
             }
 
             findViewById<TextView>(R.id.R3).setOnClickListener {
                 offAllResButton()
-                if (mvm.lock.read())findViewById<Button>(R.id.drawRes3).visibility = View.VISIBLE
+                if (mvm.lock.read()){
+                    findViewById<Button>(R.id.drawRes3).visibility = View.VISIBLE
+                    mvm.lock.lock()
+                }
             }
 
             findViewById<TextView>(R.id.R4).setOnClickListener {
                 offAllResButton()
-                if (mvm.lock.read())findViewById<Button>(R.id.drawRes4).visibility = View.VISIBLE
+                if (mvm.lock.read()){
+                    findViewById<Button>(R.id.drawRes4).visibility = View.VISIBLE
+                    mvm.lock.lock()
+                }
             }
 
 

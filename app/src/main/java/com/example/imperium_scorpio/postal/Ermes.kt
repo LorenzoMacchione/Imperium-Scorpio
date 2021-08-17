@@ -19,13 +19,13 @@ class Ermes(val cardDAO: CardDAO?=null){
     fun readyToPlay(user:String, wait:Waiting_Room){
         val dbWaiting = dbRoot.reference.child("wait")
 
-        dbWaiting.addChildEventListener(WaitingRoomListener(wait))
+        dbWaiting.addChildEventListener(WaitingRoomListener(wait,user))
         dbWaiting.push().setValue(QueueModel(user))
     }
 
-    fun setGame(player:String, mvm:MatchViewModel){
-        dbPlayer = dbRoot.reference.child("game/prova")
-        dbRoot.reference.child("game/$player").addChildEventListener(MatchListener(mvm,cardDAO!!,this))
+    fun setGame(player:String, enemy:String, mvm:MatchViewModel){
+        dbPlayer = dbRoot.reference.child("game/$player")
+        dbRoot.reference.child("game/$enemy").addChildEventListener(MatchListener(mvm,cardDAO!!,this))
         randomModel()
 
     }

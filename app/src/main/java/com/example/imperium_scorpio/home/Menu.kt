@@ -5,8 +5,10 @@ import android.media.MediaPlayer
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
+import android.widget.EditText
 import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import com.example.imperium_scorpio.Lock
 import com.example.imperium_scorpio.R
@@ -39,7 +41,9 @@ class Menu : Fragment(R.layout.menu) {
         }
 
         requireView().findViewById<ImageView>(R.id.new_game).setOnClickListener {
-        view.findNavController().navigate(R.id.action_menu_to_waiting_Room)
+            val user = requireView().findViewById<EditText>(R.id.Player_name).text.toString()
+            val bundle = bundleOf("user" to user)
+        view.findNavController().navigate(R.id.action_menu_to_waiting_Room, bundle)
 
         }
     }

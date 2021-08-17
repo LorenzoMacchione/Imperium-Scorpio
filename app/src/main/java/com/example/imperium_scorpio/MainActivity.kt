@@ -24,10 +24,12 @@ class MainActivity : AppCompatActivity() {
 
         val sharedPref = this.getPreferences(Context.MODE_PRIVATE)
 
-        if (sharedPref.getBoolean("first run",  true)) {
-            sharedPref.edit().putBoolean("first run", true).commit()
-            //navController.navigate(R.id.action_menu_to_installer)
+        if (!sharedPref.getBoolean("first run",  false)) {
+           sharedPref.edit().putBoolean("first run", true).commit()
+           navController.navigate(R.id.action_menu_to_installer)
         }
+
+
 
 
 
