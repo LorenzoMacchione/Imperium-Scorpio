@@ -1,10 +1,14 @@
 package com.example.imperium_scorpio.match
 
 import android.content.Context
+import android.content.res.Resources
+import android.view.View
 import androidx.lifecycle.ViewModel
 import com.example.imperium_scorpio.Lock
+import com.example.imperium_scorpio.R
 import com.example.imperium_scorpio.database.CardDAO
 import com.example.imperium_scorpio.match.viewmodels.*
+import kotlin.properties.Delegates
 
 class MatchViewModel() : ViewModel() {
 
@@ -12,7 +16,7 @@ class MatchViewModel() : ViewModel() {
 
     val enemy = Enemy()
 
-    val lock = Lock()
+    val lock = MessageLock(Resources.getSystem().getString(R.string.EnemyTurn),Resources.getSystem().getString(R.string.YourTurn))
 
 
 

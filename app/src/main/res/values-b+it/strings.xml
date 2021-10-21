@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Imperium_Scorpio</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="wait">WAIT</string>
+    <string name="draw">Pesca</string>
+    <string name="PlayerName">Nome</string>
+    <string name="NewGame">Gioca</string>
+    <string name="EnemyTurn">Turno del nemico</string>
+    <string name="YourTurn">Turno del giocatore</string>
+    <string name="Rules">Regolamento</string>
+    <string name="RuleP1">Benvenuto nel sistema di Bamdocar recluta.\n\n La guerra tra i pianeti incalza, e i governi hanno deciso di assoldarci.\n\n Noi! \"Gli Scorpion\" sempre pronti a combattere, anche tra di noi dietro il giusto compenso chiaramente.\n\n Adesso ti insegnero\' come comandare le tue truppe.</string>
+    <string name="card_2_descr">Disciplina sopra ogni cosa, e\' cosi che addestra la migliore forza spaziale di Guldrum</string>
+    <string name="RulesP2_0">Questa carta rapresenta le capacità dell\'unita\'. Seleziona il numero per ottenere informazioni su cosa raprensetano i dati sulla carta.</string>
+    <string name="RulesP2_1">1- Questo e\' il nome del comandante dell\'unita\'</string>
+    <string name="RulesP2_2">2- Questi numeri rapresentano il costo in risorse necessario per giocare l\'unita\'.</string>
+    <string name="RulesP2_3">3- Questa e\' la descrizione del comandante.</string>
+    <string name="RulesP2_4">4- Questo numero rapresenta la capacita\' offensiva dell\'unita\'.</string>
+    <string name="RulesP2_5">5- Questo numero rapresenta la capacita\' di ottenere risorse dell\'unita\'.</string>
+    <string name="RulesP2_6">6- Questo numero rapresenta la capacita\' difensiva dell\'unita\'.</string>
+</resources>

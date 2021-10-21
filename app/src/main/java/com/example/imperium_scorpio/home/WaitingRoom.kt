@@ -18,7 +18,6 @@ class Waiting_Room : Fragment(R.layout.fragment_waiting_room) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         user = arguments?.getString("user")!!
-            ermes.readyToPlay(user,this)
     }
 
     fun startGame(enemy: String?) {
@@ -28,6 +27,15 @@ class Waiting_Room : Fragment(R.layout.fragment_waiting_room) {
         startActivityForResult(intent, 0)
     }
 
+    override fun onPause() {
+        super.onPause()
+        ermes.stopSearch()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        ermes.readyToPlay(user,this)
+    }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         view?.findNavController()?.navigate(R.id.action_waiting_Room_to_menu)

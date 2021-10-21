@@ -69,6 +69,9 @@
     <variable
         name="p9"
         type="com.example.imperium_scorpio.match.viewmodels.Planet" />
+    <variable
+        name="turn"
+        type="com.example.imperium_scorpio.match.viewmodels.MessageLock" />
 </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -3093,6 +3096,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.604"
         tools:visibility="gone" />
+
+    <TextView
+        android:id="@+id/Turn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="@{turn.msg}"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/match_background" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

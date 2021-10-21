@@ -64,4 +64,9 @@ class Ermes(val cardDAO: CardDAO?=null){
         initiative = (0..100).random()
         dbPlayer.push().setValue((RandomModel(initiative)))
     }
+
+    fun stopSearch() {
+        val dbWaiting = dbRoot.reference.child("wait")
+        dbWaiting.removeValue()
+    }
 }

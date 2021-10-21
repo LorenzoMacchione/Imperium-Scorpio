@@ -31,7 +31,8 @@ class WaitingRoomListener(val wait: Waiting_Room, val userName: String): ChildEv
     }
 
     override fun onChildRemoved(snapshot: DataSnapshot) {
-        TODO("Not yet implemented")
+        val dbWaiting = dbRoot.reference.child("wait")
+        dbWaiting.removeEventListener(this)
     }
 
     override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {

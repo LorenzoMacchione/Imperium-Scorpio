@@ -1,8 +1,20 @@
 <resources>
     <string name="app_name">Imperium_Scorpio</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="wait">WAIT</string>
     <string name="draw">DRAW</string>
     <string name="PlayerName">Name</string>
+    <string name="NewGame">Play</string>
+    <string name="EnemyTurn">Enemy turn</string>
+    <string name="YourTurn">Player\'s turn</string>
+    <string name="Rules">Rules</string>
+    <string name="RuleP1">Welcome to the Bamdocar\'s system, rookie.\n\n The war between the planets is pressing and, the governments have decided to recruit us.\n\n Us! The Scorpion are ready to fight, even against our brothers, with enough money obviously.\n\n Now I will teach you how to command your troops.</string>
+    <string name="card_2_descr">Discipline over all, this is how she train the best Guldrum space force</string>
+    <string name="RulesP2_0">This card represent the skill of the unit. Select a number for read more of what it represent.</string>
+    <string name="RulesP2_1">1- This is the name of the officer of the unit</string>
+    <string name="RulesP2_2">2- This numbers represent the cost in resource necessary to play the unit.</string>
+    <string name="RulesP2_3">3- This is the description of the officer.</string>
+    <string name="RulesP2_4">4- This number represent the offencive skill of the unit.</string>
+    <string name="RulesP2_5">5- This number represent the mining (obtain resource) skill of the unit.</string>
+    <string name="RulesP2_6">6- This number represent the defending skill of the unit.</string>
 </resources>

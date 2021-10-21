@@ -1,9 +1,9 @@
 package com.example.imperium_scorpio
 
-class Lock {
+open class Lock {
     private var unlocked=true
 
-    fun lock (){
+    open fun lock (){
         unlocked=false
     }
 

@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".home.rules_page.RulesP2">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/CardExplorer"
+            android:layout_width="247dp"
+            android:layout_height="362dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.92"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.050000012"
+            tools:visibility="visible">
+
+            <ImageView
+                android:id="@+id/CardBackGround"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/backcard" />
+
+            <ImageView
+                android:id="@+id/CardImmage"
+                android:layout_width="201dp"
+                android:layout_height="145dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.717"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/CardBackGround"
+                app:layout_constraintVertical_bias="0.1"
+                app:srcCompat="@drawable/card_2" />
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="186dp"
+                android:layout_height="12dp"
+                android:text="Varga, the master"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="11sp"
+                app:layout_constraintBottom_toTopOf="@+id/CardImmage"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.541"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/CardBackGround" />
+
+            <TextView
+                android:id="@+id/cost1"
+                android:layout_width="16dp"
+                android:layout_height="14dp"
+                android:layout_marginTop="22dp"
+                android:text="3"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="11sp"
+                app:layout_constraintEnd_toStartOf="@+id/CardImmage"
+                app:layout_constraintHorizontal_bias="0.529"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/name" />
+
+            <TextView
+                android:id="@+id/cost2"
+                android:layout_width="15dp"
+                android:layout_height="14dp"
+                android:layout_marginTop="12dp"
+                android:text="3"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/cost1"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/cost1"
+                app:layout_constraintTop_toBottomOf="@+id/cost1" />
+
+            <TextView
+                android:id="@+id/cost3"
+                android:layout_width="16dp"
+                android:layout_height="15dp"
+                android:layout_marginTop="12dp"
+                android:text="0"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/cost2"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/cost2"
+                app:layout_constraintTop_toBottomOf="@+id/cost2" />
+
+            <TextView
+                android:id="@+id/cost4"
+                android:layout_width="15dp"
+                android:layout_height="14dp"
+                android:layout_marginTop="12dp"
+                android:text="1"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toTopOf="@+id/effect"
+                app:layout_constraintEnd_toEndOf="@+id/cost3"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/cost3"
+                app:layout_constraintTop_toBottomOf="@+id/cost3"
+                app:layout_constraintVertical_bias="0.019" />
+
+            <TextView
+                android:id="@+id/effect"
+                android:layout_width="223dp"
+                android:layout_height="135dp"
+                android:text="@string/card_2_descr"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.432"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/CardImmage"
+                app:layout_constraintVertical_bias="0.254" />
+
+            <TextView
+                android:id="@+id/attack"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginEnd="76dp"
+                android:text="5"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/mining"
+                app:layout_constraintEnd_toStartOf="@+id/mining"
+                app:layout_constraintHorizontal_bias="0.28"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/mining"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/mining"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:text="8"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/CardBackGround"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.51"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/effect"
+                app:layout_constraintVertical_bias="0.75" />
+
+            <TextView
+                android:id="@+id/Hp"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginEnd="2dp"
+                android:text="8"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/mining"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/mining"
+                app:layout_constraintTop_toTopOf="@+id/mining"
+                app:layout_constraintVertical_bias="0.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/rules_p2_b1"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="48dp"
+            android:text="1"
+            app:layout_constraintEnd_toStartOf="@+id/CardExplorer"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_right"
+            app:layout_constraintBottom_toBottomOf="@+id/rules_p2_b1"
+            app:layout_constraintEnd_toStartOf="@+id/CardExplorer"
+            app:layout_constraintStart_toEndOf="@+id/rules_p2_b1"
+            app:layout_constraintTop_toTopOf="@+id/rules_p2_b1" />
+
+        <Button
+            android:id="@+id/rules_p2_b2"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="32dp"
+            android:text="2"
+            app:layout_constraintEnd_toEndOf="@+id/rules_p2_b1"
+            app:layout_constraintStart_toStartOf="@+id/rules_p2_b1"
+            app:layout_constraintTop_toBottomOf="@+id/rules_p2_b1" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_right"
+            app:layout_constraintBottom_toBottomOf="@+id/rules_p2_b2"
+            app:layout_constraintEnd_toStartOf="@+id/CardExplorer"
+            app:layout_constraintStart_toEndOf="@+id/rules_p2_b2"
+            app:layout_constraintTop_toTopOf="@+id/rules_p2_b2" />
+
+        <Button
+            android:id="@+id/rules_p2_b3"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="92dp"
+            android:text="3"
+            app:layout_constraintEnd_toEndOf="@+id/rules_p2_b2"
+            app:layout_constraintStart_toStartOf="@+id/rules_p2_b2"
+            app:layout_constraintTop_toBottomOf="@+id/rules_p2_b2" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_right"
+            app:layout_constraintBottom_toBottomOf="@+id/rules_p2_b3"
+            app:layout_constraintEnd_toStartOf="@+id/CardExplorer"
+            app:layout_constraintStart_toEndOf="@+id/rules_p2_b3"
+            app:layout_constraintTop_toTopOf="@+id/rules_p2_b3" />
+
+        <TextView
+            android:id="@+id/rules_p2_descr"
+            android:layout_width="283dp"
+            android:layout_height="144dp"
+            android:fontFamily="@font/laceration"
+            android:text="@string/RulesP2_0"
+            android:textColor="#FFC107"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rules_p2_b5"
+            app:layout_constraintVertical_bias="0.56" />
+
+        <Button
+            android:id="@+id/rules_p2_b4"
+            android:layout_width="51dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="60dp"
+            android:text="4"
+            app:layout_constraintEnd_toEndOf="@+id/rules_p2_b3"
+            app:layout_constraintStart_toStartOf="@+id/rules_p2_b3"
+            app:layout_constraintTop_toBottomOf="@+id/rules_p2_b3" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_right"
+            app:layout_constraintBottom_toBottomOf="@+id/rules_p2_b4"
+            app:layout_constraintEnd_toStartOf="@+id/CardExplorer"
+            app:layout_constraintStart_toEndOf="@+id/rules_p2_b4"
+            app:layout_constraintTop_toTopOf="@+id/rules_p2_b4" />
+
+        <Button
+            android:id="@+id/rules_p2_b5"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="20dp"
+            android:text="5"
+            app:layout_constraintEnd_toEndOf="@+id/CardExplorer"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="@+id/CardExplorer"
+            app:layout_constraintTop_toBottomOf="@+id/CardExplorer" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:rotation="-90"
+            android:src="@drawable/ic_arrow_right"
+            app:layout_constraintBottom_toTopOf="@+id/rules_p2_b5"
+            app:layout_constraintEnd_toEndOf="@+id/rules_p2_b5"
+            app:layout_constraintStart_toStartOf="@+id/rules_p2_b5"
+            app:layout_constraintTop_toBottomOf="@+id/CardExplorer" />
+
+        <Button
+            android:id="@+id/rules_p2_b6"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:text="6"
+            app:layout_constraintBottom_toBottomOf="@+id/rules_p2_b5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.98"
+            app:layout_constraintStart_toStartOf="@+id/CardExplorer"
+            app:layout_constraintTop_toTopOf="@+id/rules_p2_b5" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:rotation="-90"
+            android:src="@drawable/ic_arrow_right"
+            app:layout_constraintBottom_toTopOf="@+id/rules_p2_b6"
+            app:layout_constraintEnd_toEndOf="@+id/rules_p2_b6"
+            app:layout_constraintStart_toStartOf="@+id/rules_p2_b6"
+            app:layout_constraintTop_toTopOf="@+id/imageView5" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

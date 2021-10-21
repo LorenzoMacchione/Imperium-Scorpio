@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rules_nav_graph"
+    app:startDestination="@id/rules_p1">
+
+    <fragment
+        android:id="@+id/rules_p1"
+        android:name="com.example.imperium_scorpio.home.rules_page.RulesP1"
+        android:label="fragment_rules_p1"
+        tools:layout="@layout/fragment_rules_p1">
+        <action
+            android:id="@+id/action_rules_p1_to_rulesP2"
+            app:destination="@id/rulesP2" />
+    </fragment>
+    <fragment
+        android:id="@+id/rulesP2"
+        android:name="com.example.imperium_scorpio.home.rules_page.RulesP2"
+        android:label="fragment_rules_p2"
+        tools:layout="@layout/fragment_rules_p2">
+        <action
+            android:id="@+id/action_rulesP2_to_rules_p1"
+            app:destination="@id/rules_p1" />
+        <action
+            android:id="@+id/action_rulesP2_to_rulesP3"
+            app:destination="@id/rulesP3" />
+    </fragment>
+    <fragment
+        android:id="@+id/rulesP3"
+        android:name="com.example.imperium_scorpio.home.rules_page.RulesP3"
+        android:label="fragment_rules_p3"
+        tools:layout="@layout/fragment_rules_p3" >
+        <action
+            android:id="@+id/action_rulesP3_to_rulesP2"
+            app:destination="@id/rulesP2" />
+    </fragment>
+</navigation>

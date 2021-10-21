@@ -26,6 +26,9 @@
         <action
             android:id="@+id/action_menu_to_waiting_Room"
             app:destination="@id/waiting_Room" />
+        <action
+            android:id="@+id/action_menu_to_rules"
+            app:destination="@id/rules" />
     </fragment>
     <fragment
         android:id="@+id/waiting_Room"
@@ -34,6 +37,15 @@
         tools:layout="@layout/fragment_waiting_room" >
         <action
             android:id="@+id/action_waiting_Room_to_menu"
+            app:destination="@id/menu" />
+    </fragment>
+    <fragment
+        android:id="@+id/rules"
+        android:name="com.example.imperium_scorpio.home.Rules"
+        android:label="fragment_rules"
+        tools:layout="@layout/fragment_rules" >
+        <action
+            android:id="@+id/action_rules_to_menu"
             app:destination="@id/menu" />
     </fragment>
 

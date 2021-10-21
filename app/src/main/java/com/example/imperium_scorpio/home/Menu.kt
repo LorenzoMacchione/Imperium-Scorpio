@@ -44,7 +44,10 @@ class Menu : Fragment(R.layout.menu) {
             val user = requireView().findViewById<EditText>(R.id.Player_name).text.toString()
             val bundle = bundleOf("user" to user)
         view.findNavController().navigate(R.id.action_menu_to_waiting_Room, bundle)
+        }
 
+        requireView().findViewById<ImageView>(R.id.collection).setOnClickListener {
+            view.findNavController().navigate(R.id.action_menu_to_rules)
         }
     }
     override fun onStop() {

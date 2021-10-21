@@ -122,6 +122,8 @@ class MatchActivity : AppCompatActivity() {
         binding.p8 = mvm.planets[7]
         binding.p9 = mvm.planets[8]
 
+        binding.turn = mvm.lock
+
         binding.lifecycleOwner = this
 
         //FINE BIDING
@@ -295,7 +297,6 @@ class MatchActivity : AppCompatActivity() {
                 offAllResButton()
                 if (mvm.lock.read()){
                     findViewById<Button>(R.id.drawRes1).visibility = View.VISIBLE
-                    mvm.lock.lock()
                 }
             }
 
@@ -303,7 +304,6 @@ class MatchActivity : AppCompatActivity() {
                 offAllResButton()
                 if (mvm.lock.read()){
                     findViewById<Button>(R.id.drawRes2).visibility = View.VISIBLE
-                    mvm.lock.lock()
                 }
             }
 
@@ -311,7 +311,6 @@ class MatchActivity : AppCompatActivity() {
                 offAllResButton()
                 if (mvm.lock.read()){
                     findViewById<Button>(R.id.drawRes3).visibility = View.VISIBLE
-                    mvm.lock.lock()
                 }
             }
 
@@ -319,7 +318,6 @@ class MatchActivity : AppCompatActivity() {
                 offAllResButton()
                 if (mvm.lock.read()){
                     findViewById<Button>(R.id.drawRes4).visibility = View.VISIBLE
-                    mvm.lock.lock()
                 }
             }
 
@@ -332,6 +330,7 @@ class MatchActivity : AppCompatActivity() {
                         mvm.pRes[buttons.indexOf(i)].useRes(1)
                         mvm.hand.addCard(deck.draw())
                         ermes.drawMsg(buttons.indexOf(i))
+                        mvm.lock.lock()
                     } else {
                         Toast.makeText(this, "La mano è piena", Toast.LENGTH_LONG).show()
                     }
