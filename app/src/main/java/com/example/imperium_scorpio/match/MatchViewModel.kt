@@ -16,7 +16,8 @@ class MatchViewModel() : ViewModel() {
 
     val enemy = Enemy()
 
-    val lock = MessageLock(Resources.getSystem().getString(R.string.EnemyTurn),Resources.getSystem().getString(R.string.YourTurn))
+    val turn = MessageLock("Enemy turn",
+        "Player turn")
 
 
 

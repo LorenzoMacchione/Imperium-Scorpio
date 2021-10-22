@@ -94,7 +94,4 @@ class Enemy {
         eRes4.minRes(a[3])
     }
 
-    fun win() {
-        TODO("Not yet implemented")
-    }
 }

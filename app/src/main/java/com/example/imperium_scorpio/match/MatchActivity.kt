@@ -13,7 +13,6 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.DataBindingUtil
-import com.example.imperium_scorpio.Lock
 import com.example.imperium_scorpio.R
 import com.example.imperium_scorpio.database.CardDAO
 import com.example.imperium_scorpio.database.CardDB
@@ -122,7 +121,7 @@ class MatchActivity : AppCompatActivity() {
         binding.p8 = mvm.planets[7]
         binding.p9 = mvm.planets[8]
 
-        binding.turn = mvm.lock
+        binding.turn = mvm.turn
 
         binding.lifecycleOwner = this
 
@@ -174,11 +173,6 @@ class MatchActivity : AppCompatActivity() {
             finish()
         }
 
-        findViewById<ImageView>(R.id.planet1).setOnClickListener {
-            for (r in mvm.pRes){
-                r.minRes(10)
-            }
-        }
     }
 
     //Funzione per impostare l'explorer
@@ -211,7 +205,7 @@ class MatchActivity : AppCompatActivity() {
             val data = ClipData("0", mime, item)
 
             val dragShadow = View.DragShadowBuilder(it)
-            if (mvm.lock.read())it.startDragAndDrop(data, dragShadow, it, 0)
+            if (mvm.turn.read())it.startDragAndDrop(data, dragShadow, it, 0)
 
             true
         }
@@ -228,7 +222,7 @@ class MatchActivity : AppCompatActivity() {
             val data = ClipData("1", mime, item)
 
             val dragShadow = View.DragShadowBuilder(it)
-            if (mvm.lock.read())it.startDragAndDrop(data, dragShadow, it, 0)
+            if (mvm.turn.read())it.startDragAndDrop(data, dragShadow, it, 0)
 
             true
         }
@@ -245,7 +239,7 @@ class MatchActivity : AppCompatActivity() {
             val data = ClipData("2", mime, item)
 
             val dragShadow = View.DragShadowBuilder(it)
-            if (mvm.lock.read())it.startDragAndDrop(data, dragShadow, it, 0)
+            if (mvm.turn.read())it.startDragAndDrop(data, dragShadow, it, 0)
 
             true
         }
@@ -262,7 +256,7 @@ class MatchActivity : AppCompatActivity() {
             val data = ClipData("3", mime, item)
 
             val dragShadow = View.DragShadowBuilder(it)
-            if (mvm.lock.read())it.startDragAndDrop(data, dragShadow, it, 0)
+            if (mvm.turn.read())it.startDragAndDrop(data, dragShadow, it, 0)
 
             true
         }
@@ -279,7 +273,7 @@ class MatchActivity : AppCompatActivity() {
             val data = ClipData("4", mime, item)
 
             val dragShadow = View.DragShadowBuilder(it)
-            if (mvm.lock.read())it.startDragAndDrop(data, dragShadow, it, 0)
+            if (mvm.turn.read())it.startDragAndDrop(data, dragShadow, it, 0)
 
             true
         }
@@ -295,28 +289,28 @@ class MatchActivity : AppCompatActivity() {
 
             findViewById<TextView>(R.id.R1).setOnClickListener {
                 offAllResButton()
-                if (mvm.lock.read()){
+                if (mvm.turn.read()){
                     findViewById<Button>(R.id.drawRes1).visibility = View.VISIBLE
                 }
             }
 
             findViewById<TextView>(R.id.R2).setOnClickListener {
                 offAllResButton()
-                if (mvm.lock.read()){
+                if (mvm.turn.read()){
                     findViewById<Button>(R.id.drawRes2).visibility = View.VISIBLE
                 }
             }
 
             findViewById<TextView>(R.id.R3).setOnClickListener {
                 offAllResButton()
-                if (mvm.lock.read()){
+                if (mvm.turn.read()){
                     findViewById<Button>(R.id.drawRes3).visibility = View.VISIBLE
                 }
             }
 
             findViewById<TextView>(R.id.R4).setOnClickListener {
                 offAllResButton()
-                if (mvm.lock.read()){
+                if (mvm.turn.read()){
                     findViewById<Button>(R.id.drawRes4).visibility = View.VISIBLE
                 }
             }
@@ -330,7 +324,7 @@ class MatchActivity : AppCompatActivity() {
                         mvm.pRes[buttons.indexOf(i)].useRes(1)
                         mvm.hand.addCard(deck.draw())
                         ermes.drawMsg(buttons.indexOf(i))
-                        mvm.lock.lock()
+                        mvm.turn.lock()
                     } else {
                         Toast.makeText(this, "La mano è piena", Toast.LENGTH_LONG).show()
                     }
@@ -419,7 +413,7 @@ class MatchActivity : AppCompatActivity() {
 
                                 mvm.planets[i].moveTo(mvm.hand.takeCard(card.toString().toInt()))
                                 ermes.playCard(c.id,i)
-                                mvm.lock.lock()
+                                mvm.turn.lock()
                             }else{
                                 Toast.makeText(this,"Non hai abbastanza risorse",Toast.LENGTH_LONG).show()
                             }
@@ -436,7 +430,7 @@ class MatchActivity : AppCompatActivity() {
             }
 
             cOnPlanet[i].setOnClickListener {
-                if (mvm.planets[i].card.player != 1 && mvm.lock.read()) {
+                if (mvm.planets[i].card.player != 1 && mvm.turn.read()) {
                     activeCard = i
                     offAllResButton()
                     findViewById<ImageView>(ringsY[i]).visibility = View.VISIBLE
@@ -464,13 +458,13 @@ class MatchActivity : AppCompatActivity() {
                 }
                 ermes.mining(c)
                 offAllRings()
-                mvm.lock.lock()
+                mvm.turn.lock()
             }
 
             findViewById<ImageView>(ringsG[c]).setOnClickListener {
                 mvm.planets[c].moveTo(mvm.planets[activeCard].moveFrom())
                 ermes.move(activeCard, c)
-                mvm.lock.lock()
+                mvm.turn.lock()
 
                 offAllRings()
 
@@ -484,10 +478,11 @@ class MatchActivity : AppCompatActivity() {
             }
 
             findViewById<ImageView>(ringsR[c]).setOnClickListener {
+                val defenderAtk = mvm.planets[c].attack.value!!
                 mvm.planets[c].takeDamage(mvm.planets[activeCard].attack.value!!)
-                mvm.planets[activeCard].takeDamage(mvm.planets[c].attack.value!!)
+                mvm.planets[activeCard].takeDamage(defenderAtk)
                 ermes.attackMsg(activeCard, c)
-                mvm.lock.lock()
+                mvm.turn.lock()
 
                 offAllRings()
             }

@@ -25,24 +25,25 @@ class MatchListener(val mvm: MatchViewModel, val cardDAO: CardDAO, val ermes: Er
                     if (msg.end==0){
                         mvm.enemy.win=2
                     }
-                    mvm.lock.unlock()
+                    mvm.turn.unlock()
                 }
                 "attackModel"->{
                     val msg = snapshot.getValue(AttackModel::class.java)
+                    val defenderAtk = mvm.planets[msg?.defender!!].attack.value
                     mvm.planets[msg?.defender!!].takeDamage(mvm.planets[msg?.striker!!].attack.value!!)
-                    if (mvm.planets[msg?.defender!!].id!=-1)mvm.planets[msg?.striker!!].takeDamage(mvm.planets[msg?.defender!!].attack.value!!)
-                    mvm.lock.unlock()
+                    mvm.planets[msg?.striker!!].takeDamage(defenderAtk!!)
+                    mvm.turn.unlock()
                 }
                 "drawModel"->{
                     val msg = snapshot.getValue(DrawModel::class.java)
                     mvm.enemy.eRes[msg?.res!!].useRes()
                     mvm.enemy.draw()
-                    mvm.lock.unlock()
+                    mvm.turn.unlock()
                 }
                 "miningModel"->{
                     val msg = snapshot.getValue(MiningModel::class.java)
                     mvm.enemy.enemyMining(mvm.planets[msg?.planet!!].takeRes())
-                    mvm.lock.unlock()
+                    mvm.turn.unlock()
                 }
                 "playCardModel"->{
                     val msg = snapshot.getValue(PlayCardModel::class.java)
@@ -50,12 +51,12 @@ class MatchListener(val mvm: MatchViewModel, val cardDAO: CardDAO, val ermes: Er
                     c.player = 1
                     mvm.planets[msg?.planet!!].moveTo(c)
                     mvm.enemy.playCard(c)
-                    mvm.lock.unlock()
+                    mvm.turn.unlock()
                 }
                 "randomModel"->{
                     val msg = snapshot.getValue(RandomModel::class.java)
-                    if (msg?.value!! < ermes.initiative) mvm.lock.unlock()
-                    if (msg?.value!! > ermes.initiative) mvm.lock.lock()
+                    if (msg?.value!! < ermes.initiative) mvm.turn.unlock()
+                    if (msg?.value!! > ermes.initiative) mvm.turn.lock()
                     if (msg?.value!! == ermes.initiative) ermes.randomModel()
                 }
             }

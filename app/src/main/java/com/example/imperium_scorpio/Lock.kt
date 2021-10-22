@@ -7,7 +7,7 @@ open class Lock {
         unlocked=false
     }
 
-    fun unlock (){
+    open fun unlock (){
         unlocked=true
     }
 
