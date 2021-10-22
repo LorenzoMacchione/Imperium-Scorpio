@@ -28,8 +28,10 @@ class Enemy {
         for (i in 0..newValue){
             card[i].value = View.VISIBLE
         }
-        for (i in 4 downTo newValue){
-            card[i].value = View.INVISIBLE
+        if (newValue!=5) {
+            for (i in 4 downTo newValue) {
+                card[i].value = View.INVISIBLE
+            }
         }
     }
 
