@@ -1,11 +1,13 @@
+/**
+ * Classe per la gestione delle risorse
+ */
 package com.example.imperium_scorpio.match.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 
 class Resource {
-    private val _res = MutableLiveData<Int>(5)
+    private val _res = MutableLiveData<Int>(3)
             val res: LiveData<Int>
             get() = _res
 

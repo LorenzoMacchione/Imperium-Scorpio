@@ -1,3 +1,7 @@
+/**
+ * Classe che permette di lavorare su una coppia della carta mantenendo l'informazione originaria della carta
+ */
+
 package com.example.imperium_scorpio.match.viewmodels
 
 import android.content.Context

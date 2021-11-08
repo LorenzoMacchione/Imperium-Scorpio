@@ -1,3 +1,7 @@
+/**
+ * Classe che rapresenta una collezione di carte, i metodi per recuperarle o casualmente o direttamente
+ */
+
 package com.example.imperium_scorpio.match
 
 import android.app.Activity

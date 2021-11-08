@@ -1,13 +1,10 @@
 package com.example.imperium_scorpio.home.rules_page
 
-import android.opengl.Visibility
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
 import com.example.imperium_scorpio.R
 
 

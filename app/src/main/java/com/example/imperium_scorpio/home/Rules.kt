@@ -1,3 +1,7 @@
+/**
+ * Classe che gestisce le pagine delle regole
+ */
+
 package com.example.imperium_scorpio.home
 
 import android.os.Bundle
@@ -6,9 +10,7 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentContainerView
-import androidx.navigation.NavDirections
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import com.example.imperium_scorpio.R
 import kotlin.properties.Delegates
 

@@ -1,3 +1,7 @@
+/**
+* Interfaccia che gestisce le interazioni con il database
+* */
+
 package com.example.imperium_scorpio.database
 
 import androidx.room.Dao

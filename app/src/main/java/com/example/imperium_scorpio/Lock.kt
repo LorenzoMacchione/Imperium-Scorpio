@@ -1,3 +1,7 @@
+/**
+ * Un lock per poter gestire i turni
+ */
+
 package com.example.imperium_scorpio
 
 open class Lock {

@@ -1,3 +1,7 @@
+/**
+ * estensione del lock per visualizzare un messaggio dipendente dalla situazione del lock
+ */
+
 package com.example.imperium_scorpio.match.viewmodels
 
 import android.graphics.Color

@@ -1,10 +1,13 @@
+/**
+ * Classe che porta le informazioni per l'explorer
+ */
+
 package com.example.imperium_scorpio.match.viewmodels
 
 import android.content.Context
 import android.graphics.drawable.Drawable
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.example.imperium_scorpio.database.Cards
 
 class Explorer(val context: Context) {

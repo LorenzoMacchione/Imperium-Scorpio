@@ -1,3 +1,7 @@
+/**
+ * Classe che gestisce il matchmaking
+ */
+
 package com.example.imperium_scorpio.postal.ermes_listener
 
 import com.example.imperium_scorpio.home.Waiting_Room

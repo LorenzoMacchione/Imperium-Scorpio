@@ -1,3 +1,7 @@
+/**
+ * Nel main viene controllato se è il primo avvio dell'app e in caso inizializza il database
+ */
+
 package com.example.imperium_scorpio
 
 import android.content.Context

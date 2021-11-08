@@ -1,8 +1,11 @@
+/**
+ * Classe usata solo al primo avvio dell'app per riempire il database
+ */
+
 package com.example.imperium_scorpio.home
 
 import android.os.Bundle
 import android.view.View
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.imperium_scorpio.R
@@ -14,17 +17,6 @@ class   Installer : Fragment(R.layout.installer) {
         super.onCreate(savedInstanceState)
 
         val cardDAO= CardDB.getInstanceLoading(requireActivity().application).cardDAO()
-
-
-       /*for (a in 0 until 100){
-            getView()?.findViewById<TextView>(R.id.loading_per)?.text = (getView()?.findViewById<TextView>(
-                R.id.loading_per
-            )?.text.toString().toInt()+1).toString()
-            //findViewById<ProgressBar>(R.id.progressBar).incrementProgressBy(1)
-           val newCard= Cards(a, "Giuseppe$a", a, a, a, a,"Bella",
-               a, a, a,a)
-           cardDAO.insert(newCard)
-       }*/
 
         cardDAO.insert( Cards(1,"Valden great pilot",0,2,0,3,"He is one of the ace Pilot of the Santur Imperium",8,2,5,175))
         cardDAO.insert( Cards(2,"Varga, the master",3,2,0,1,getString(R.string.card_2_descr),5,5,8,155))

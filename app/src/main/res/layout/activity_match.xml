@@ -3104,7 +3104,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="14dp"
         android:background="@drawable/collection"
-        android:fontFamily="@font/glitch_inside"
+        android:fontFamily="@font/laceration"
         android:text="@{turn.msg}"
         android:textColor="@{turn.color}"
         android:textSize="24sp"

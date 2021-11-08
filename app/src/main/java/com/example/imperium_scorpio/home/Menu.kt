@@ -1,6 +1,10 @@
+/**
+ * Classe che gestisce l'intro all'avvio, l'inserimento del nome del giocatore,
+ * l'iinizio del matchmaking e l'ingresso nella sezione delle regole
+ */
+
 package com.example.imperium_scorpio.home
 
-import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,10 +14,8 @@ import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
-import com.example.imperium_scorpio.Lock
 import com.example.imperium_scorpio.R
-import com.example.imperium_scorpio.match.MatchActivity
-import com.example.imperium_scorpio.postal.Ermes
+
 
 class Menu : Fragment(R.layout.menu) {
 

@@ -1,3 +1,7 @@
+/**
+ * Classe per la gestione della mano del giocatore
+ */
+
 package com.example.imperium_scorpio.match.viewmodels
 import android.content.Context
 import com.example.imperium_scorpio.database.Cards

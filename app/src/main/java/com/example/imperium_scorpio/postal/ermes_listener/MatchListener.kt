@@ -1,3 +1,7 @@
+/**
+ * Classe che gestisce i messaggi proveninti dall'avversario
+ */
+
 package com.example.imperium_scorpio.postal.ermes_listener
 
 import com.example.imperium_scorpio.database.CardDAO

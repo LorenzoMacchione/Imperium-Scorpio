@@ -1,3 +1,7 @@
+/**
+ * Classe che si occupa dell'invio dei messaggi e di avviare i listener
+ */
+
 package com.example.imperium_scorpio.postal
 
 import com.example.imperium_scorpio.database.CardDAO

@@ -1,3 +1,7 @@
+/**
+* Classe che inizializza il database
+* */
+
 package com.example.imperium_scorpio.database
 
 import android.content.Context

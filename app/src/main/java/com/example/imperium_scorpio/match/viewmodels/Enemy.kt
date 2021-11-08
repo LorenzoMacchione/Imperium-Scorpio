@@ -1,3 +1,7 @@
+/**
+ *Classe che gestisce i dati e le azioni dell'avversario
+ */
+
 package com.example.imperium_scorpio.match.viewmodels
 
 import android.view.View
@@ -25,13 +29,11 @@ class Enemy {
 
     var hand: Int by Delegates.observable(0) { property, oldValue, newValue ->
 
-        for (i in 0..newValue){
-            card[i].value = View.VISIBLE
+        if (oldValue<newValue){
+            card[newValue-1].value = View.VISIBLE
         }
-        if (newValue!=5) {
-            for (i in 4 downTo newValue) {
-                card[i].value = View.INVISIBLE
-            }
+        else{
+            card[oldValue-1].value = View.INVISIBLE
         }
     }
 
@@ -43,23 +45,23 @@ class Enemy {
 
     val card = mutableListOf<MutableLiveData<Int>>()
 
-    private val _card1 = MutableLiveData<Int>(0)
+    private val _card1 = MutableLiveData<Int>(View.INVISIBLE)
     val card1: LiveData<Int>
         get() = _card1
 
-    private val _card2 = MutableLiveData<Int>(0)
+    private val _card2 = MutableLiveData<Int>(View.INVISIBLE)
     val card2: LiveData<Int>
         get() = _card2
 
-    private val _card3 = MutableLiveData<Int>(0)
+    private val _card3 = MutableLiveData<Int>(View.INVISIBLE)
     val card3: LiveData<Int>
         get() = _card3
 
-    private val _card4 = MutableLiveData<Int>(0)
+    private val _card4 = MutableLiveData<Int>(View.INVISIBLE)
     val card4: LiveData<Int>
         get() = _card4
 
-    private val _card5 = MutableLiveData<Int>(0)
+    private val _card5 = MutableLiveData<Int>(View.INVISIBLE)
     val card5: LiveData<Int>
         get() = _card5
 
@@ -95,5 +97,6 @@ class Enemy {
         eRes3.minRes(a[2])
         eRes4.minRes(a[3])
     }
+
 
 }

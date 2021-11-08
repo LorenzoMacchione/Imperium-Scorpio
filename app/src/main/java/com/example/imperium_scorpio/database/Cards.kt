@@ -1,6 +1,9 @@
+/**
+* Classe che rappresenta le carte nel gioco
+* */
+
 package com.example.imperium_scorpio.database
 
-import android.media.AsyncPlayer
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 

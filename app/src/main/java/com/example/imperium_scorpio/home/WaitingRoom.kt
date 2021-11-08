@@ -1,3 +1,8 @@
+/**
+ * gestisce il matchmaking cercando un utente con un nome diverso dal giocatore
+ * viene fermata la ricerca se l'applicazione va in pausa e riprende quando viene riaperta
+ */
+
 package com.example.imperium_scorpio.home
 
 import android.content.Intent

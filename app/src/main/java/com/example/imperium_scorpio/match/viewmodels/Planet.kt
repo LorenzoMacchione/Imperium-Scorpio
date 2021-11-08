@@ -1,3 +1,7 @@
+/**
+ * Classe che estende SmallCard per aggiungere le propietà e i metodi dei pianeti
+ */
+
 package com.example.imperium_scorpio.match.viewmodels
 
 import android.content.Context

@@ -1,3 +1,7 @@
+/**
+ * Classe che gestisce il biding e delle componeti della UI e le relative interazioni con il giocatore
+ */
+
 package com.example.imperium_scorpio.match
 import android.content.ClipData
 import android.content.ClipDescription
