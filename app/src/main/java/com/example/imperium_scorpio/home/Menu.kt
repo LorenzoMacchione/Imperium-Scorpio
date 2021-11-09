@@ -10,16 +10,20 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import com.example.imperium_scorpio.R
+import com.example.imperium_scorpio.postal.Ermes
 
 
 class Menu : Fragment(R.layout.menu) {
 
     lateinit var mediaPlayer: MediaPlayer
+    val ermes = Ermes()
+
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -30,6 +34,7 @@ class Menu : Fragment(R.layout.menu) {
 
         getView()?.findViewById<ConstraintLayout>(R.id.menu)?.visibility = View.INVISIBLE
         getView()?.findViewById<ImageView>(R.id.logo)?.visibility = View.VISIBLE
+        getView()?.findViewById<ImageButton>(R.id.imageButton)?.setOnClickListener { ermes.cleanDB() }
 
         val listener =
             Listener(requireView().findViewById(R.id.logo), requireView().findViewById(R.id.menu))

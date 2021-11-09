@@ -10,11 +10,9 @@
     <string name="Rules">Rules</string>
     <string name="RuleP1">Welcome to the Bamdocar\'s system, rookie.\n\n The war between the planets is pressing and, the governments have decided to recruit us.\n\n Us! The Scorpion are ready to fight, even against our brothers, with enough money obviously.\n\n Now I will teach you how to command your troops.</string>
     <string name="card_2_descr">Discipline over all, this is how she train the best Guldrum space force</string>
-    <string name="RulesP2_0">This card represent the skill of the unit. Select a number for read more of what it represent.</string>
-    <string name="RulesP2_1">1- This is the name of the officer of the unit</string>
-    <string name="RulesP2_2">2- This numbers represent the cost in resource necessary to play the unit.</string>
-    <string name="RulesP2_3">3- This is the description of the officer.</string>
-    <string name="RulesP2_4">4- This number represent the offencive skill of the unit.</string>
-    <string name="RulesP2_5">5- This number represent the mining (obtain resource) skill of the unit.</string>
-    <string name="RulesP2_6">6- This number represent the defending skill of the unit.</string>
+    <string name="RuleP2">Objective:\n The player\'s goal is to be able to place one of his cards in the main planet of the enemy\n\n How to play:\n Each player will be assigned a randomly generated deck.\n</string>
+    <string name="RuleP3">At each turn the player can choose if place a card while spending resources, move one of the cards played, attack an enemy card if this is near or sacrifice 1 life point of a card to get resources on the planet in which it is located.</string>
+    <string name="RuleP4">Commands\n Pressing on a card located in our hand will focus(elarge) it to see more details.\n Holding down on a card located in our hand we can move it to one of the 3 planets close to us.</string>
+    <string name="RuleP5">Pressing on a card placed on a planet will appear rings:\n-Green ring we can move our card to the neighboring planet\n-Red Ring we can attack an enemy card placed on the neighboring planet</string>
+    <string name="RuleP6">Yellow Ring will appear on the planet where the card will be located and pressing on it will take the resources of that planet</string>
 </resources>

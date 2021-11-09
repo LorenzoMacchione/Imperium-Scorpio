@@ -5,9 +5,13 @@
     android:layout_height="match_parent"
     tools:context=".home.rules_page.RulesP3">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/laceration"
+        android:text="@string/RuleP3"
+        android:textAlignment="textStart"
+        android:textColor="#AC8806"
+        android:textSize="20sp" />
 </FrameLayout>

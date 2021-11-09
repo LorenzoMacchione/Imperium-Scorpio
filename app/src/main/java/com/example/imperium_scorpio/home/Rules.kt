@@ -25,12 +25,25 @@ class Rules : Fragment(R.layout.fragment_rules) {
             requireView().findViewById<ImageButton>(R.id.previus_rule_page).visibility = View.VISIBLE
         }
 
+        if (newValue==6){
+            requireView().findViewById<ImageButton>(R.id.next_rule_page).visibility = View.INVISIBLE
+        }else{
+            requireView().findViewById<ImageButton>(R.id.next_rule_page).visibility = View.VISIBLE
+        }
+
         when (newValue){
             1 -> requireView().findViewById<FragmentContainerView>(R.id.rules_page).findNavController().navigate(R.id.action_rulesP2_to_rules_p1)
             2-> if (newValue>oldValue) requireView().findViewById<FragmentContainerView>(R.id.rules_page).findNavController().navigate(R.id.action_rules_p1_to_rulesP2)
                 else requireView().findViewById<FragmentContainerView>(R.id.rules_page).findNavController().navigate(R.id.action_rulesP3_to_rulesP2)
             3-> if (newValue>oldValue) requireView().findViewById<FragmentContainerView>(R.id.rules_page).findNavController().navigate(R.id.action_rulesP2_to_rulesP3)
-                //else requireView().findViewById<FragmentContainerView>(R.id.rules_page).findNavController().navigate(R.id.action_rulesP3_to_rulesP2)
+                else requireView().findViewById<FragmentContainerView>(R.id.rules_page).findNavController().navigate(R.id.action_rulesP4_to_rulesP3)
+            4-> if (newValue>oldValue) requireView().findViewById<FragmentContainerView>(R.id.rules_page).findNavController().navigate(R.id.action_rulesP3_to_rulesP4)
+                else requireView().findViewById<FragmentContainerView>(R.id.rules_page).findNavController().navigate(R.id.action_rulesP5_to_rulesP4)
+            5-> if (newValue>oldValue) requireView().findViewById<FragmentContainerView>(R.id.rules_page).findNavController().navigate(R.id.action_rulesP4_to_rulesP5)
+                else requireView().findViewById<FragmentContainerView>(R.id.rules_page).findNavController().navigate(R.id.action_rulesP6_to_rulesP5)
+            6-> if (newValue>oldValue) requireView().findViewById<FragmentContainerView>(R.id.rules_page).findNavController().navigate(R.id.action_rulesP5_to_rulesP6)
+
+
         }
     }
 

@@ -30,9 +30,42 @@
         android:id="@+id/rulesP3"
         android:name="com.example.imperium_scorpio.home.rules_page.RulesP3"
         android:label="fragment_rules_p3"
-        tools:layout="@layout/fragment_rules_p3" >
+        tools:layout="@layout/fragment_rules_p3">
         <action
             android:id="@+id/action_rulesP3_to_rulesP2"
             app:destination="@id/rulesP2" />
+        <action
+            android:id="@+id/action_rulesP3_to_rulesP4"
+            app:destination="@id/rulesP4" />
+    </fragment>
+    <fragment
+        android:id="@+id/rulesP4"
+        android:name="com.example.imperium_scorpio.home.rules_page.RulesP4"
+        android:label="RulesP4">
+        <action
+            android:id="@+id/action_rulesP4_to_rulesP3"
+            app:destination="@id/rulesP3" />
+        <action
+            android:id="@+id/action_rulesP4_to_rulesP5"
+            app:destination="@id/rulesP5" />
+    </fragment>
+    <fragment
+        android:id="@+id/rulesP5"
+        android:name="com.example.imperium_scorpio.home.rules_page.RulesP5"
+        android:label="RulesP5" >
+        <action
+            android:id="@+id/action_rulesP5_to_rulesP4"
+            app:destination="@id/rulesP4" />
+        <action
+            android:id="@+id/action_rulesP5_to_rulesP6"
+            app:destination="@id/rulesP6" />
+    </fragment>
+    <fragment
+        android:id="@+id/rulesP6"
+        android:name="com.example.imperium_scorpio.home.rules_page.RulesP6"
+        android:label="RulesP6" >
+        <action
+            android:id="@+id/action_rulesP6_to_rulesP5"
+            app:destination="@id/rulesP5" />
     </fragment>
 </navigation>

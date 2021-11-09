@@ -20,6 +20,10 @@ class Ermes(val cardDAO: CardDAO?=null){
 
     var initiative = 0
 
+    fun cleanDB(){
+        dbRoot.reference.removeValue()
+    }
+
     fun readyToPlay(user:String, wait:Waiting_Room){
         val dbWaiting = dbRoot.reference.child("wait")
 

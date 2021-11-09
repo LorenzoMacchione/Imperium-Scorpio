@@ -14,7 +14,7 @@
         android:scaleType="fitXY"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/background_menu" />
+        app:srcCompat="@drawable/backgroundrules" />
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -37,13 +37,33 @@
             android:layout_height="10dp"
             android:background="?android:attr/listDivider" />
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/rules_page"
-            android:name="androidx.navigation.fragment.NavHostFragment"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:defaultNavHost="true"
-            app:navGraph="@navigation/rules_nav_graph" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="124dp"
+                android:layout_height="510dp"
+                android:layout_weight="1"
+                android:background="?android:attr/listDivider" />
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/rules_page"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="253dp"
+                android:layout_height="wrap_content"
+                app:defaultNavHost="true"
+                app:navGraph="@navigation/rules_nav_graph" />
+
+            <View
+                android:id="@+id/divider3"
+                android:layout_width="124dp"
+                android:layout_height="510dp"
+                android:layout_weight="1"
+                android:background="?android:attr/listDivider" />
+        </LinearLayout>
 
     </LinearLayout>
 

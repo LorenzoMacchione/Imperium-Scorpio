@@ -11,11 +11,10 @@
     <string name="Rules">Regolamento</string>
     <string name="RuleP1">Benvenuto nel sistema di Bamdocar recluta.\n\n La guerra tra i pianeti incalza, e i governi hanno deciso di assoldarci.\n\n Noi! \"Gli Scorpion\" sempre pronti a combattere, anche tra di noi dietro il giusto compenso chiaramente.\n\n Adesso ti insegnero\' come comandare le tue truppe.</string>
     <string name="card_2_descr">Disciplina sopra ogni cosa, e\' cosi che addestra la migliore forza spaziale di Guldrum</string>
-    <string name="RulesP2_0">Questa carta rapresenta le capacità dell\'unita\'. Seleziona il numero per ottenere informazioni su cosa raprensetano i dati sulla carta.</string>
-    <string name="RulesP2_1">1- Questo e\' il nome del comandante dell\'unita\'</string>
-    <string name="RulesP2_2">2- Questi numeri rapresentano il costo in risorse necessario per giocare l\'unita\'.</string>
-    <string name="RulesP2_3">3- Questa e\' la descrizione del comandante.</string>
-    <string name="RulesP2_4">4- Questo numero rapresenta la capacita\' offensiva dell\'unita\'.</string>
-    <string name="RulesP2_5">5- Questo numero rapresenta la capacita\' di ottenere risorse dell\'unita\'.</string>
-    <string name="RulesP2_6">6- Questo numero rapresenta la capacita\' difensiva dell\'unita\'.</string>
+    <string name="RuleP2">Obbiettivo\n Lo scopo del giocatore e\' quello di riuscire a piazzare una sua carta nel pianeta principale nemico.\n Come si gioca\n Ad ogni player verrà assegnato un mazzo generato casualmente.</string>
+    <string name="RuleP3">Ad ogni turno il giocatore puo\' scegliere se evocare una sua carta spendendo risorse, muovere una delle carte giocate, attaccare una carta avversaria se questa e\' vicino ad una delle nostre oppure sacrificare 1 punto vita di una carta per ottenere risorse sul pianeta in cui essa e\' situata.</string>
+    <string name="RuleP4">Comandi\n Premendo su una carta situata nella nostra mano ringrandirai essa per vedere maggiori dettagli.\n Tenendo premuto su una carta situata nella nostra mano potremo spostarla su uno dei 3 pianeti vicini a noi.</string>
+    <string name="RuleP5">Premendo su una carta collocata su un pianeta compariranno degli anelli:\n -Anello verde possiamo spostare la nostra carta nel pianeta vicino\n -Anello Rosso possiamo attaccare una carta nemica collocata sul pianeta vicino</string>
+    <string name="RuleP6"> -Anello Giallo comparira\' sul pianeta in cui la carta sara\' situata e premendo sopra ad essa prenderai le risorse di quel pianeta</string>
+
 </resources>

@@ -12,6 +12,7 @@ class Planet(val position: Int, val danger: Int, val res1:Boolean, val res2:Bool
              val res3:Boolean, val res4:Boolean,context: Context, var controlled: Boolean = false): SmallCard(context) {
 
     val range1 = mutableListOf<Int>()
+    var rotation =0;
 
 
     val pRes = mutableListOf<Boolean>()
@@ -108,6 +109,7 @@ class Planet(val position: Int, val danger: Int, val res1:Boolean, val res2:Bool
     override fun blank(){
         controlled = false
         newCard( Cards(-1,"0",-1,-1,-1,-1,"-1",-1,-1,-1,-1))
+        rotation=0
     }
 
 
@@ -122,6 +124,7 @@ class Planet(val position: Int, val danger: Int, val res1:Boolean, val res2:Bool
             _r2.value = c.r2.value
             _r3.value = c.r3.value
             _r4.value = c.r4.value
+            rotation = 180*(c.card.player+(c.card.player%2))
             controlled=true
         }
     }
@@ -130,6 +133,8 @@ class Planet(val position: Int, val danger: Int, val res1:Boolean, val res2:Bool
         if (!controlled)
         {
             newCard(c)
+            rotation = 180*(c.player+(c.player%2))
+
             controlled=true
         }
     }
