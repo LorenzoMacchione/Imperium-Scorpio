@@ -3,21 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/AN515-55-78BG/AndroidStudioProjects/Imperium-Scorpio/app/src/main/res/drawable-anydpi/Refresh.xml" value="0.2703125" />
         <entry key="..\:/Users/AN515-55-78BG/AndroidStudioProjects/Imperium-Scorpio/app/src/main/res/layout/activity_main.xml" value="0.2128623188405797" />
-        <entry key="..\:/Users/AN515-55-78BG/AndroidStudioProjects/Imperium-Scorpio/app/src/main/res/layout/activity_match.xml" value="0.4" />
+        <entry key="..\:/Users/AN515-55-78BG/AndroidStudioProjects/Imperium-Scorpio/app/src/main/res/layout/activity_match.xml" value="0.264" />
         <entry key="..\:/Users/AN515-55-78BG/AndroidStudioProjects/Imperium-Scorpio/app/src/main/res/layout/fragment_login.xml" value="0.2463768115942029" />
-        <entry key="..\:/Users/AN515-55-78BG/AndroidStudioProjects/Imperium-Scorpio/app/src/main/res/layout/fragment_rules.xml" value="0.264" />
+        <entry key="..\:/Users/AN515-55-78BG/AndroidStudioProjects/Imperium-Scorpio/app/src/main/res/layout/fragment_rules.xml" value="0.20742753623188406" />
         <entry key="..\:/Users/AN515-55-78BG/AndroidStudioProjects/Imperium-Scorpio/app/src/main/res/layout/fragment_rules_p1.xml" value="0.25" />
-        <entry key="..\:/Users/AN515-55-78BG/AndroidStudioProjects/Imperium-Scorpio/app/src/main/res/layout/fragment_rules_p2.xml" value="0.4" />
-        <entry key="..\:/Users/AN515-55-78BG/AndroidStudioProjects/Imperium-Scorpio/app/src/main/res/layout/fragment_rules_p3.xml" value="0.264" />
-        <entry key="..\:/Users/AN515-55-78BG/AndroidStudioProjects/Imperium-Scorpio/app/src/main/res/layout/fragment_rules_p4.xml" value="0.25226449275362317" />
-        <entry key="..\:/Users/AN515-55-78BG/AndroidStudioProjects/Imperium-Scorpio/app/src/main/res/layout/fragment_rules_p5.xml" value="0.25226449275362317" />
-        <entry key="..\:/Users/AN515-55-78BG/AndroidStudioProjects/Imperium-Scorpio/app/src/main/res/layout/fragment_rules_p6.xml" value="0.25226449275362317" />
-        <entry key="..\:/Users/AN515-55-78BG/AndroidStudioProjects/Imperium-Scorpio/app/src/main/res/layout/menu.xml" value="0.4" />
+        <entry key="..\:/Users/AN515-55-78BG/AndroidStudioProjects/Imperium-Scorpio/app/src/main/res/layout/fragment_rules_p2.xml" value="0.264" />
+        <entry key="..\:/Users/AN515-55-78BG/AndroidStudioProjects/Imperium-Scorpio/app/src/main/res/layout/fragment_rules_p3.xml" value="0.22916666666666666" />
+        <entry key="..\:/Users/AN515-55-78BG/AndroidStudioProjects/Imperium-Scorpio/app/src/main/res/layout/menu.xml" value="0.1933876811594203" />
         <entry key="..\:/Users/AN515-55-78BG/AndroidStudioProjects/Imperium-Scorpio/app/src/main/res/layout/rules_p1.xml" value="0.2128623188405797" />
         <entry key="..\:/Users/gianl/AndroidStudioProjects/Imperium-Scorpio/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/gianl/AndroidStudioProjects/Imperium-Scorpio/app/src/main/res/layout/activity_match.xml" value="0.25052083333333336" />
+        <entry key="..\:/Users/gianl/AndroidStudioProjects/Progetto/Imperium-Scorpio/app/src/main/res/drawable-anydpi/Refresh.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/gianl/AndroidStudioProjects/Progetto/Imperium-Scorpio/app/src/main/res/layout/activity_match.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/gianl/AndroidStudioProjects/Progetto/Imperium-Scorpio/app/src/main/res/layout/menu.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>
