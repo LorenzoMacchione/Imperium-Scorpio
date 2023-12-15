@@ -1,4 +1,4 @@
-Introduzione
+
 Benvenuto nel repository del nostro videogioco di carte multiplayer online creato con Android Studio utilizzando il linguaggio di programmazione Kotlin. Questa applicazione offre un'esperienza coinvolgente di gioco di carte online, sfruttando la potenza di Firebase per la gestione in tempo reale del database e una robusta struttura di binding dinamico con observer per la gestione dell'interfaccia utente.
 
 Caratteristiche Principali
